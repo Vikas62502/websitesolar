@@ -6,10 +6,12 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { LeadModal } from "@/components/lead-modal"
 import { useLeadModal } from "@/hooks/use-lead-modal"
+import { usePathname } from "next/navigation"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const { isOpen: isModalOpen, openModal, closeModal, modalProps } = useLeadModal()
+  const pathname = usePathname()
 
   const handleGetQuote = () => {
     openModal({
@@ -31,28 +33,28 @@ export function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="/products" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">
+              <Link href="/products" className={`text-gray-700 hover:text-orange-600 font-medium transition-colors ${pathname === "/products" ? "text-orange-600 underline" : ""}`}>
                 Products
               </Link>
-              <Link href="/calculator" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">
+              <Link href="/calculator" className={`text-gray-700 hover:text-orange-600 font-medium transition-colors ${pathname === "/calculator" ? "text-orange-600 underline" : ""}`}>
                 Calculator
               </Link>
-              <Link href="/companies" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">
+              <Link href="/companies" className={`text-gray-700 hover:text-orange-600 font-medium transition-colors ${pathname === "/companies" ? "text-orange-600 underline" : ""}`}>
                 Companies
               </Link>
               <Link
                 href="/recommendations"
-                className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
+                className={`text-gray-700 hover:text-orange-600 font-medium transition-colors ${pathname === "/recommendations" ? "text-orange-600 underline" : ""}`}
               >
                 Recommendations
               </Link>
-              <Link href="/why" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">
+              <Link href="/why" className={`text-gray-700 hover:text-orange-600 font-medium transition-colors ${pathname === "/why" ? "text-orange-600 underline" : ""}`}>
                 Why Solar
               </Link>
-              <Link href="/about" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">
+              <Link href="/about" className={`text-gray-700 hover:text-orange-600 font-medium transition-colors ${pathname === "/about" ? "text-orange-600 underline" : ""}`}>
                 About Us
               </Link>
-              <Link href="/contact" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">
+              <Link href="/contact" className={`text-gray-700 hover:text-orange-600 font-medium transition-colors ${pathname === "/contact" ? "text-orange-600 underline" : ""}`}>
                 Contact
               </Link>
               <Button onClick={handleGetQuote} className="bg-orange-600 hover:bg-orange-700">
@@ -74,49 +76,49 @@ export function Navbar() {
               <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t shadow-lg">
                 <Link
                   href="/products"
-                  className="block px-3 py-3 text-gray-700 hover:text-orange-600 font-medium rounded-md hover:bg-gray-50 transition-colors"
+                  className={`block px-3 py-3 text-gray-700 hover:text-orange-600 font-medium rounded-md hover:bg-gray-50 transition-colors ${pathname === "/products" ? "text-orange-600 underline" : ""}`}
                   onClick={() => setIsOpen(false)}
                 >
                   Products
                 </Link>
                 <Link
                   href="/calculator"
-                  className="block px-3 py-3 text-gray-700 hover:text-orange-600 font-medium rounded-md hover:bg-gray-50 transition-colors"
+                  className={`block px-3 py-3 text-gray-700 hover:text-orange-600 font-medium rounded-md hover:bg-gray-50 transition-colors ${pathname === "/calculator" ? "text-orange-600 underline" : ""}`}
                   onClick={() => setIsOpen(false)}
                 >
                   Calculator
                 </Link>
                 <Link
                   href="/companies"
-                  className="block px-3 py-3 text-gray-700 hover:text-orange-600 font-medium rounded-md hover:bg-gray-50 transition-colors"
+                  className={`block px-3 py-3 text-gray-700 hover:text-orange-600 font-medium rounded-md hover:bg-gray-50 transition-colors ${pathname === "/companies" ? "text-orange-600 underline" : ""}`}
                   onClick={() => setIsOpen(false)}
                 >
                   Companies
                 </Link>
                 <Link
                   href="/recommendations"
-                  className="block px-3 py-3 text-gray-700 hover:text-orange-600 font-medium rounded-md hover:bg-gray-50 transition-colors"
+                  className={`block px-3 py-3 text-gray-700 hover:text-orange-600 font-medium rounded-md hover:bg-gray-50 transition-colors ${pathname === "/recommendations" ? "text-orange-600 underline" : ""}`}
                   onClick={() => setIsOpen(false)}
                 >
                   Recommendations
                 </Link>
                 <Link
                   href="/why"
-                  className="block px-3 py-3 text-gray-700 hover:text-orange-600 font-medium rounded-md hover:bg-gray-50 transition-colors"
+                  className={`block px-3 py-3 text-gray-700 hover:text-orange-600 font-medium rounded-md hover:bg-gray-50 transition-colors ${pathname === "/why" ? "text-orange-600 underline" : ""}`}
                   onClick={() => setIsOpen(false)}
                 >
                   Why Solar
                 </Link>
                 <Link
                   href="/about"
-                  className="block px-3 py-3 text-gray-700 hover:text-orange-600 font-medium rounded-md hover:bg-gray-50 transition-colors"
+                  className={`block px-3 py-3 text-gray-700 hover:text-orange-600 font-medium rounded-md hover:bg-gray-50 transition-colors ${pathname === "/about" ? "text-orange-600 underline" : ""}`}
                   onClick={() => setIsOpen(false)}
                 >
                   About Us
                 </Link>
                 <Link
                   href="/contact"
-                  className="block px-3 py-3 text-gray-700 hover:text-orange-600 font-medium rounded-md hover:bg-gray-50 transition-colors"
+                  className={`block px-3 py-3 text-gray-700 hover:text-orange-600 font-medium rounded-md hover:bg-gray-50 transition-colors ${pathname === "/contact" ? "text-orange-600 underline" : ""}`}
                   onClick={() => setIsOpen(false)}
                 >
                   Contact

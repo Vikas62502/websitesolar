@@ -1,3 +1,4 @@
+"use client"
 import { MapPin, Phone, Mail, Clock, MessageCircle, Headphones, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -7,8 +8,33 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { useState } from "react"
 
 export default function ContactPage() {
+  // Collapsible FAQ state
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const faqs = [
+    {
+      question: "How quickly can I get a solar quote?",
+      answer:
+        "You can get an instant estimate using our solar calculator. For a detailed quote, our experts will contact you within 24 hours after you submit your requirements.",
+    },
+    {
+      question: "Do you provide installation services?",
+      answer:
+        "Yes, we work with certified installation partners across India. We handle the entire process from design to commissioning and provide ongoing support.",
+    },
+    {
+      question: "What financing options are available?",
+      answer:
+        "We offer various financing options including zero down payment plans, EMI options, and help with government subsidies. Our team will help you find the best financing solution.",
+    },
+    {
+      question: "How long does installation take?",
+      answer:
+        "Typical residential installations take 1-3 days depending on system size. The entire process from approval to commissioning usually takes 2-4 weeks.",
+    },
+  ]
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
@@ -31,7 +57,7 @@ export default function ContactPage() {
       {/* Contact Options */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <Card className="text-center hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
                 <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -44,23 +70,6 @@ export default function ContactPage() {
                   <p className="text-gray-500">Toll-free • Mon-Sat, 9 AM - 7 PM</p>
                 </div>
                 <Button className="mt-4 w-full bg-orange-600 hover:bg-orange-700">Call Now</Button>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-lg transition-shadow">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MessageCircle className="h-6 w-6 text-blue-600" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Live Chat</h3>
-                <p className="text-gray-600 text-sm mb-4">Get instant answers to your questions</p>
-                <div className="space-y-2 text-sm">
-                  <p className="font-medium">Available 24/7</p>
-                  <p className="text-gray-500">Average response time: 2 minutes</p>
-                </div>
-                <Button variant="outline" className="mt-4 w-full bg-transparent">
-                  Start Chat
-                </Button>
               </CardContent>
             </Card>
 
@@ -176,39 +185,30 @@ export default function ContactPage() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <MapPin className="h-5 w-5 text-orange-600" />
-                    Our Offices
+                    Our Office
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>
                     <h4 className="font-semibold text-gray-900">Head Office - Gurugram</h4>
                     <p className="text-gray-600 text-sm mt-1">
-                      SolarDeals India Pvt. Ltd.
-                      <br />
-                      Tower A, Cyber City
-                      <br />
+                      SolarDeals India Pvt. Ltd.<br />
+                      Tower A, Cyber City<br />
                       Gurugram, Haryana 122002
                     </p>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Regional Office - Mumbai</h4>
-                    <p className="text-gray-600 text-sm mt-1">
-                      Level 15, One World Center
-                      <br />
-                      Senapati Bapat Marg
-                      <br />
-                      Mumbai, Maharashtra 400013
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Regional Office - Bangalore</h4>
-                    <p className="text-gray-600 text-sm mt-1">
-                      Embassy Tech Village
-                      <br />
-                      Outer Ring Road
-                      <br />
-                      Bangalore, Karnataka 560103
-                    </p>
+                  {/* Google Maps Embed */}
+                  <div className="rounded-lg overflow-hidden border">
+                    <iframe
+                      src="https://www.google.com/maps?q=Cyber+City,+Gurugram,+Haryana,+India&output=embed"
+                      width="100%"
+                      height="220"
+                      style={{ border: 0 }}
+                      allowFullScreen={true}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Head Office Location"
+                    ></iframe>
                   </div>
                 </CardContent>
               </Card>
@@ -266,13 +266,6 @@ export default function ContactPage() {
                         <p className="text-sm text-gray-600">info@solardeals.in</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <Users className="h-4 w-4 text-gray-400" />
-                      <div>
-                        <p className="font-medium">Partnership</p>
-                        <p className="text-sm text-gray-600">partners@solardeals.in</p>
-                      </div>
-                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -289,46 +282,26 @@ export default function ContactPage() {
             <p className="text-gray-600">Quick answers to common questions</p>
           </div>
 
-          <div className="space-y-6">
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold text-gray-900 mb-2">How quickly can I get a solar quote?</h3>
-                <p className="text-gray-600 text-sm">
-                  You can get an instant estimate using our solar calculator. For a detailed quote, our experts will
-                  contact you within 24 hours after you submit your requirements.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold text-gray-900 mb-2">Do you provide installation services?</h3>
-                <p className="text-gray-600 text-sm">
-                  Yes, we work with certified installation partners across India. We handle the entire process from
-                  design to commissioning and provide ongoing support.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold text-gray-900 mb-2">What financing options are available?</h3>
-                <p className="text-gray-600 text-sm">
-                  We offer various financing options including zero down payment plans, EMI options, and help with
-                  government subsidies. Our team will help you find the best financing solution.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold text-gray-900 mb-2">How long does installation take?</h3>
-                <p className="text-gray-600 text-sm">
-                  Typical residential installations take 1-3 days depending on system size. The entire process from
-                  approval to commissioning usually takes 2-4 weeks.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => (
+              <Card key={idx} className="overflow-hidden">
+                <button
+                  className="w-full flex items-center justify-between p-6 focus:outline-none"
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  type="button"
+                  aria-expanded={openFaq === idx}
+                  aria-controls={`faq-answer-${idx}`}
+                >
+                  <span className="font-semibold text-gray-900 text-left">{faq.question}</span>
+                  <span className="ml-4 text-2xl text-orange-600">{openFaq === idx ? "-" : "+"}</span>
+                </button>
+                {openFaq === idx && (
+                  <CardContent className="pt-0 pb-6 px-6 animate-fade-in" id={`faq-answer-${idx}`}>
+                    <p className="text-gray-600 text-sm">{faq.answer}</p>
+                  </CardContent>
+                )}
+              </Card>
+            ))}
           </div>
         </div>
       </section>

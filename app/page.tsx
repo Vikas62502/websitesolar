@@ -1,3 +1,5 @@
+"use client"
+import { useState } from "react"
 import { ArrowRight, Calculator, TrendingUp, Leaf, Sun, Shield, Users, Award } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -7,8 +9,53 @@ import { Badge } from "@/components/ui/badge"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { HomeLeadSection } from "@/components/home-lead-section"
+import { LeadModal } from "@/components/lead-modal"
 
 export default function HomePage() {
+  const [leadProduct, setLeadProduct] = useState<string | null>(null)
+
+  const products = [
+    {
+      name: "Tata Solar 540W Mono PERC",
+      image: "/placeholder.svg?height=200&width=300",
+      alt: "Tata Solar Panel",
+      originalPrice: "₹22,000",
+      ourPrice: "₹18,500",
+      warranty: "25 Year Warranty",
+      features: [
+        "540W High Efficiency",
+        "Mono PERC Technology",
+        "Made in India",
+      ],
+    },
+    {
+      name: "Luminous 5KW Solar Inverter",
+      image: "/placeholder.svg?height=200&width=300",
+      alt: "Luminous Inverter",
+      originalPrice: "₹52,000",
+      ourPrice: "₹45,000",
+      warranty: "5 Year Warranty",
+      features: [
+        "MPPT Technology",
+        "WiFi Monitoring",
+        "Indian Brand",
+      ],
+    },
+    {
+      name: "Waaree 445W Bifacial Panel",
+      image: "/placeholder.svg?height=200&width=300",
+      alt: "Waaree Solar Panel",
+      originalPrice: "₹20,000",
+      ourPrice: "₹16,800",
+      warranty: "25 Year Warranty",
+      features: [
+        "Bifacial Technology",
+        "445W Output",
+        "Premium Quality",
+      ],
+    },
+  ]
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -56,7 +103,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 sm:py-16 bg-white">
+      {/* <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
             <div className="text-center">
@@ -77,7 +124,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Featured Products */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
@@ -88,80 +135,37 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <Image
-                  src="/placeholder.svg?height=200&width=300"
-                  alt="Tata Solar Panel"
-                  width={300}
-                  height={200}
-                  className="rounded-lg mb-4"
-                />
-                <CardTitle>Tata Solar 540W Mono PERC</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl font-bold text-orange-600">₹18,500</span>
-                  <Badge variant="secondary">25 Year Warranty</Badge>
-                </div>
-                <ul className="text-sm text-gray-600 space-y-1 mb-4">
-                  <li>• 540W High Efficiency</li>
-                  <li>• Mono PERC Technology</li>
-                  <li>• Made in India</li>
-                </ul>
-                <Button className="w-full">View Details</Button>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <Image
-                  src="/placeholder.svg?height=200&width=300"
-                  alt="Luminous Inverter"
-                  width={300}
-                  height={200}
-                  className="rounded-lg mb-4"
-                />
-                <CardTitle>Luminous 5KW Solar Inverter</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl font-bold text-orange-600">₹45,000</span>
-                  <Badge variant="secondary">5 Year Warranty</Badge>
-                </div>
-                <ul className="text-sm text-gray-600 space-y-1 mb-4">
-                  <li>• MPPT Technology</li>
-                  <li>• WiFi Monitoring</li>
-                  <li>• Indian Brand</li>
-                </ul>
-                <Button className="w-full">View Details</Button>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <Image
-                  src="/placeholder.svg?height=200&width=300"
-                  alt="Waaree Solar Panel"
-                  width={300}
-                  height={200}
-                  className="rounded-lg mb-4"
-                />
-                <CardTitle>Waaree 445W Bifacial Panel</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl font-bold text-orange-600">₹16,800</span>
-                  <Badge variant="secondary">25 Year Warranty</Badge>
-                </div>
-                <ul className="text-sm text-gray-600 space-y-1 mb-4">
-                  <li>• Bifacial Technology</li>
-                  <li>• 445W Output</li>
-                  <li>• Premium Quality</li>
-                </ul>
-                <Button className="w-full">View Details</Button>
-              </CardContent>
-            </Card>
+            {products.map((product) => (
+              <Card key={product.name} className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <Image
+                    src={product.image}
+                    alt={product.alt}
+                    width={335}
+                    height={200}
+                    className="rounded-lg mb-4"
+                  />
+                  <CardTitle>{product.name}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-col gap-1 mb-4">
+                    <div className="flex items-center gap-2">
+                      <span className="text-gray-400 line-through text-sm">{product.originalPrice}</span>
+                      <span className="text-orange-600 font-bold text-xl">{product.ourPrice}</span>
+                    </div>
+                    <Badge variant="secondary">{product.warranty}</Badge>
+                  </div>
+                  <ul className="text-sm text-gray-600 space-y-1 mb-4">
+                    {product.features.map((feature) => (
+                      <li key={feature}>• {feature}</li>
+                    ))}
+                  </ul>
+                  <Button className="w-full" onClick={() => setLeadProduct(product.name)}>
+                    Know more
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
           </div>
 
           <div className="text-center mt-8 sm:mt-12">
@@ -172,6 +176,26 @@ export default function HomePage() {
               </Link>
             </Button>
           </div>
+
+          {leadProduct && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+              <div className="bg-white rounded-lg shadow-lg p-6 max-w-lg w-full relative">
+                <button
+                  className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
+                  onClick={() => setLeadProduct(null)}
+                  aria-label="Close"
+                >
+                  &times;
+                </button>
+                <LeadModal
+                  isOpen={!!leadProduct}
+                  onClose={() => setLeadProduct(null)}
+                  title={`Get Quote for ${leadProduct}`}
+                  source={leadProduct ?? undefined}
+                />
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

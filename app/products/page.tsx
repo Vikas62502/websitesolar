@@ -91,21 +91,6 @@ const products = [
     efficiency: "20.1%",
     madeInIndia: true,
   },
-  {
-    id: 6,
-    name: "Exide 150Ah Solar Battery",
-    brand: "Exide Industries",
-    price: 12500,
-    originalPrice: 14000,
-    rating: 4.3,
-    reviews: 98,
-    image: "/placeholder.svg?height=200&width=300",
-    category: "Batteries",
-    capacity: "150Ah",
-    warranty: "5 Years",
-    type: "Tubular",
-    madeInIndia: true,
-  },
 ]
 
 export default function ProductsPage() {
@@ -130,6 +115,20 @@ export default function ProductsPage() {
     const matchesPrice = product.price >= priceRange[0] && product.price <= priceRange[1]
 
     return matchesSearch && matchesCategory && matchesBrand && matchesPrice
+  })
+
+  // Sorting logic
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    if (sortBy === "price-low") {
+      return a.price - b.price
+    } else if (sortBy === "price-high") {
+      return b.price - a.price
+    } else if (sortBy === "rating") {
+      return b.rating - a.rating
+    } else {
+      // Popularity: sort by reviews descending
+      return b.reviews - a.reviews
+    }
   })
 
   const handleGetQuote = (productName: string) => {
@@ -278,7 +277,7 @@ export default function ProductsPage() {
                 viewMode === "grid" ? "grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6" : "space-y-4"
               }
             >
-              {filteredProducts.map((product) => (
+              {sortedProducts.map((product) => (
                 <Card key={product.id} className="hover:shadow-lg transition-shadow">
                   <CardHeader className="pb-3 sm:pb-4">
                     <div className="relative">
@@ -334,22 +333,12 @@ export default function ProductsPage() {
                             </span>
                           </div>
                         )}
-                        {product.category === "Batteries" && (
-                          <div>
-                            <span>
-                              • {product.capacity} • {product.type} Type
-                            </span>
-                          </div>
-                        )}
                         <div>• {product.warranty} Warranty</div>
                       </div>
 
                       <div className="flex flex-col sm:flex-row gap-2 pt-2">
                         <Button className="flex-1 h-9 sm:h-10 text-sm" onClick={() => handleGetQuote(product.name)}>
                           Get Quote
-                        </Button>
-                        <Button variant="outline" size="sm" className="h-9 sm:h-10 text-sm bg-transparent">
-                          Compare
                         </Button>
                       </div>
                     </div>

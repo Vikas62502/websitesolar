@@ -78,7 +78,7 @@ export function Footer() {
                   Contact
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/blog" className="hover:text-white transition-colors">
                   Blog
                 </Link>
@@ -87,12 +87,12 @@ export function Footer() {
                 <Link href="/careers" className="hover:text-white transition-colors">
                   Careers
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-6 sm:pt-8 text-center text-gray-400 text-sm sm:text-base">
-          <p>&copy; 2024 SolarDeals India. All rights reserved.</p>
+          <p>&copy; 2025 SolarDeals India. All rights reserved.</p>
         </div>
       </div>
     </footer>

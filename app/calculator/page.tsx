@@ -25,15 +25,6 @@ export default function CalculatorPage() {
 
   const { isOpen, openModal, closeModal, modalProps } = useLeadModal()
 
-  useEffect(() => {
-    // Show lead modal when component mounts
-    openModal({
-      title: "Get Accurate Solar Calculations",
-      subtitle: "Provide your details to get personalized solar estimates and recommendations",
-      source: "calculator_page",
-    })
-  }, [])
-
   // Calculations
   const annualConsumption = (monthlyBill * 12) / electricityRate[0]
   const requiredCapacity = Math.ceil(annualConsumption / 1200) // Assuming 1200 units per kW annually

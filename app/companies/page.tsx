@@ -1,3 +1,5 @@
+"use client"
+import { useState } from "react"
 import { MapPin, Star, Award, Users, Calendar } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -6,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { CompanyLeadSection } from "@/components/company-lead-section"
+import { LeadModal } from "@/components/lead-modal"
 
 const companies = [
   {
@@ -101,6 +104,7 @@ const companies = [
 ]
 
 export default function CompaniesPage() {
+  const [leadCompany, setLeadCompany] = useState<string | null>(null)
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -108,7 +112,7 @@ export default function CompaniesPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
           <Card>
             <CardContent className="p-3 sm:p-4 text-center">
               <div className="text-xl sm:text-2xl font-bold text-orange-600">50+</div>
@@ -133,7 +137,7 @@ export default function CompaniesPage() {
               <div className="text-xs sm:text-sm text-gray-600">Made in India</div>
             </CardContent>
           </Card>
-        </div>
+        </div> */}
 
         {/* Companies Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
@@ -171,7 +175,7 @@ export default function CompaniesPage() {
               <CardContent className="space-y-4">
                 <p className="text-gray-600 text-sm">{company.description}</p>
 
-                <div className="grid grid-cols-2 gap-4 text-sm">
+                {/* <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
                     <div className="flex items-center gap-2 text-gray-600">
                       <Calendar className="h-4 w-4" />
@@ -184,7 +188,7 @@ export default function CompaniesPage() {
                       Employees: {company.employees}
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 <div>
                   <h4 className="font-medium mb-2">Specialties:</h4>
@@ -209,19 +213,30 @@ export default function CompaniesPage() {
                 </div>
 
                 <div className="flex items-center justify-between pt-2 border-t">
-                  <div className="text-sm">
+                  {/* <div className="text-sm">
                     <span className="font-medium text-green-600">{company.projects}</span>
                     <span className="text-gray-600 ml-1">installed</span>
-                  </div>
-                  <CompanyLeadSection companyName={company.name} />
+                  </div> */}
+                  {/* <CompanyLeadSection companyName={company.name} /> */}
+                  <Button className="flex-1 h-9 sm:h-10 text-sm" onClick={() => setLeadCompany(company.name)}>
+                    Know More
+                  </Button>
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
 
+        {/* Lead Modal for company inquiry */}
+        <LeadModal
+          isOpen={!!leadCompany}
+          onClose={() => setLeadCompany(null)}
+          title={leadCompany ? `Get in touch with ${leadCompany}` : ''}
+          source={leadCompany ?? undefined}
+        />
+
         {/* CTA Section */}
-        <Card className="mt-12 bg-gradient-to-r from-orange-600 to-yellow-600 text-white">
+        {/* <Card className="mt-12 bg-gradient-to-r from-orange-600 to-yellow-600 text-white">
           <CardContent className="p-8 text-center">
             <h2 className="text-2xl font-bold mb-4">Partner with Leading Solar Companies</h2>
             <p className="text-orange-100 mb-6">
@@ -240,7 +255,7 @@ export default function CompaniesPage() {
               </Button>
             </div>
           </CardContent>
-        </Card>
+        </Card> */}
       </div>
       <Footer />
     </div>
