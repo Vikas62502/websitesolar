@@ -66,10 +66,12 @@ export default function ContactPage() {
                 <h3 className="text-lg font-semibold mb-2">Call Us</h3>
                 <p className="text-gray-600 text-sm mb-4">Speak directly with our solar experts</p>
                 <div className="space-y-2 text-sm">
-                  <p className="font-medium">1800-123-SOLAR</p>
+                  <p className="font-medium">9269666646</p>
                   <p className="text-gray-500">Toll-free • Mon-Sat, 9 AM - 7 PM</p>
                 </div>
-                <Button className="mt-4 w-full bg-orange-600 hover:bg-orange-700">Call Now</Button>
+                <a href="tel:9269666646">
+                  <Button className="mt-4 w-full bg-orange-600 hover:bg-orange-700">Call Now</Button>
+                </a>
               </CardContent>
             </Card>
 
@@ -81,12 +83,14 @@ export default function ContactPage() {
                 <h3 className="text-lg font-semibold mb-2">Email Us</h3>
                 <p className="text-gray-600 text-sm mb-4">Send us your detailed requirements</p>
                 <div className="space-y-2 text-sm">
-                  <p className="font-medium">info@solardeals.in</p>
+                  <p className="font-medium">connect@chairbord.in</p>
                   <p className="text-gray-500">Response within 4 hours</p>
                 </div>
-                <Button variant="outline" className="mt-4 w-full bg-transparent">
-                  Send Email
-                </Button>
+                <a href="mailto:connect@chairbord.in">
+                  <Button variant="outline" className="mt-4 w-full bg-transparent">
+                    Send Email
+                  </Button>
+                </a>
               </CardContent>
             </Card>
           </div>
@@ -198,18 +202,23 @@ export default function ContactPage() {
                     </p>
                   </div>
                   {/* Google Maps Embed */}
-                  <div className="rounded-lg overflow-hidden border">
-                    <iframe
-                      src="https://www.google.com/maps?q=Cyber+City,+Gurugram,+Haryana,+India&output=embed"
-                      width="100%"
-                      height="220"
-                      style={{ border: 0 }}
-                      allowFullScreen={true}
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Head Office Location"
-                    ></iframe>
-                  </div>
+                  <a
+                    href="https://www.google.com/maps/place/Chairbord+Pvt.+Ltd./@26.9483905,75.7115536,17z"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="rounded-lg overflow-hidden border">
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3556.584286575558!2d75.71155357522568!3d26.94839047662594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db34437f3b57d%3A0xbbe7f554286804!2sChairbord%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1752992655199!5m2!1sen!2sin"
+                        width="600"
+                        height="450"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                      ></iframe>
+                    </div>
+                  </a>
                 </CardContent>
               </Card>
 
@@ -256,14 +265,18 @@ export default function ContactPage() {
                       <Phone className="h-4 w-4 text-gray-400" />
                       <div>
                         <p className="font-medium">Customer Support</p>
-                        <p className="text-sm text-gray-600">1800-123-SOLAR</p>
+                        <a href="tel:9269666646">
+                          <p className="text-sm text-gray-600 underline">9269666646</p>
+                        </a>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <Mail className="h-4 w-4 text-gray-400" />
                       <div>
                         <p className="font-medium">General Inquiries</p>
-                        <p className="text-sm text-gray-600">info@solardeals.in</p>
+                        <a href="mailto:connect@chairbord.in">
+                          <p className="text-sm text-gray-600 underline">connect@chairbord.in</p>
+                        </a>
                       </div>
                     </div>
                   </div>

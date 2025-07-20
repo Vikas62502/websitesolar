@@ -9,18 +9,18 @@ import { Footer } from "@/components/footer"
 
 const founders = [
   {
-    name: "Rajesh Kumar",
+    name: "Kamlesh Natwadiya",
     role: "Co-Founder & CEO",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://res.cloudinary.com/du0cxgoic/image/upload/v1753022245/Screenshot2025-07-201710011_pr3cmo.png",
     bio: "Former VP at Tata Power Solar with 15+ years in renewable energy. IIT Delhi alumnus passionate about making solar accessible to every Indian household.",
     linkedin: "#",
     twitter: "#",
     email: "rajesh@solardeals.in",
   },
   {
-    name: "Priya Sharma",
+    name: "Sunil Natwadiya",
     role: "Co-Founder & CTO",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://res.cloudinary.com/du0cxgoic/image/upload/v1753022245/WhatsAppImage2025-07-20at15.07.37_dba3f815_urlfxy.png",
     bio: "Ex-Google engineer with expertise in AI and marketplace platforms. MIT graduate focused on using technology to accelerate India's clean energy transition.",
     linkedin: "#",
     twitter: "#",
@@ -94,7 +94,7 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="/placeholder.svg?height=400&width=500"
+                src="https://varthana.com/school/wp-content/uploads/2023/01/B155.jpg"
                 alt="Solar installation team"
                 width={500}
                 height={400}
