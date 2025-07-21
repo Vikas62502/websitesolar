@@ -1,8 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { Zap, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { LeadModal } from "@/components/lead-modal"
 import { useLeadModal } from "@/hooks/use-lead-modal"
@@ -27,8 +28,14 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center gap-2">
-              <Zap className="h-6 w-6 sm:h-8 sm:w-8 text-orange-500" />
-              <span className="text-lg sm:text-xl font-bold text-gray-900">SolarDeals India</span>
+              <Image
+                src="/placeholder-logo.svg"
+                alt="SolarDeals India Logo"
+                width={70}
+                height={20}
+                className="w-50 h-30 sm:w-18 sm:h-7 md:w-18 md:h-8"
+              />
+              {/* <span className="text-lg sm:text-xl font-bold text-gray-900">SolarDeals India</span> */}
             </Link>
 
             {/* Desktop Navigation */}

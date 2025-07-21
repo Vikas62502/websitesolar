@@ -27,9 +27,9 @@ const founders = [
     email: "priya@solardeals.in",
   },
   {
-    name: "Amit Patel",
+    name: "Mahendra Natwadiya",
     role: "Co-Founder & COO",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://res.cloudinary.com/du0cxgoic/image/upload/v1753083878/Untitled_design_8_-Picsart-AiImageEnhancer_xwmnix.png",
     bio: "Former operations head at Flipkart with deep understanding of Indian supply chains. Ensures seamless solar installations across the country.",
     linkedin: "#",
     twitter: "#",
