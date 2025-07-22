@@ -80,7 +80,7 @@ export default function HomePage() {
             </div>
             <div className="relative order-first lg:order-last">
               <Image
-                src="/placeholder.svg?height=500&width=600"
+                src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753179834/ChatGPT_Image_Jul_22_2025_03_48_52_PM_mt9sqz.jpg"
                 alt="Solar panels on Indian home"
                 width={600}
                 height={500}
@@ -351,6 +351,79 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet Our Expert Team</h2>
+            <p className="text-xl text-gray-600">Experienced professionals dedicated to your solar journey</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <Image
+                src="/placeholder.svg?height=200&width=200"
+                alt="Rajesh Kumar"
+                width={200}
+                height={200}
+                className="rounded-full mx-auto mb-4 w-32 h-32 object-cover"
+              />
+              <h3 className="text-lg font-semibold text-gray-900">Rajesh Kumar</h3>
+              <p className="text-orange-600 font-medium">CEO & Co-Founder</p>
+              <p className="text-sm text-gray-600 mt-2">15+ years in renewable energy, Former VP at Tata Power Solar</p>
+            </div>
+
+            <div className="text-center">
+              <Image
+                src="/placeholder.svg?height=200&width=200"
+                alt="Priya Sharma"
+                width={200}
+                height={200}
+                className="rounded-full mx-auto mb-4 w-32 h-32 object-cover"
+              />
+              <h3 className="text-lg font-semibold text-gray-900">Priya Sharma</h3>
+              <p className="text-orange-600 font-medium">CTO & Co-Founder</p>
+              <p className="text-sm text-gray-600 mt-2">Ex-Google engineer, MIT graduate, AI & marketplace expert</p>
+            </div>
+
+            <div className="text-center">
+              <Image
+                src="/placeholder.svg?height=200&width=200"
+                alt="Amit Patel"
+                width={200}
+                height={200}
+                className="rounded-full mx-auto mb-4 w-32 h-32 object-cover"
+              />
+              <h3 className="text-lg font-semibold text-gray-900">Amit Patel</h3>
+              <p className="text-orange-600 font-medium">COO & Co-Founder</p>
+              <p className="text-sm text-gray-600 mt-2">Former Flipkart operations head, supply chain expert</p>
+            </div>
+
+            <div className="text-center">
+              <Image
+                src="/placeholder.svg?height=200&width=200"
+                alt="Dr. Sunita Reddy"
+                width={200}
+                height={200}
+                className="rounded-full mx-auto mb-4 w-32 h-32 object-cover"
+              />
+              <h3 className="text-lg font-semibold text-gray-900">Dr. Sunita Reddy</h3>
+              <p className="text-orange-600 font-medium">Head of Engineering</p>
+              <p className="text-sm text-gray-600 mt-2">PhD in Solar Technology, 20+ years R&D experience</p>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/about">
+                Meet the Full Team
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
 
       {/* Why Choose Us */}
       <section className="py-20 bg-gray-50">

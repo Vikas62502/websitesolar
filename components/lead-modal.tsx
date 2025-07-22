@@ -283,11 +283,11 @@ export function LeadModal({
               />
               <label htmlFor="terms" className="text-sm text-gray-600">
                 I agree to receive calls/SMS from SolarDeals India and accept the{" "}
-                <a href="/privacy" className="text-orange-600 hover:underline">
+                <a href="/privacy-policy" className="text-orange-600 hover:underline">
                   Privacy Policy
                 </a>{" "}
                 and{" "}
-                <a href="/terms" className="text-orange-600 hover:underline">
+                <a href="/terms-conditions" className="text-orange-600 hover:underline">
                   Terms of Service
                 </a>
               </label>

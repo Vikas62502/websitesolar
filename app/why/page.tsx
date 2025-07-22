@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { FAQSection } from "@/components/faq-section"
 
 export default function WhyPage() {
   return (
@@ -48,7 +49,7 @@ export default function WhyPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="/placeholder.svg?height=400&width=500"
+                src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753179201/33af2323-eede-4894-a30a-8f9580854134_pknta8.jpg"
                 alt="Clean environment with solar energy"
                 width={500}
                 height={400}
@@ -243,7 +244,7 @@ export default function WhyPage() {
             </div>
             <div>
               <Image
-                src="/placeholder.svg?height=400&width=500"
+                src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753178885/103ab3a8-f95b-454d-af85-486260b0655d_klthhk.jpg"
                 alt="India's solar energy growth"
                 width={500}
                 height={400}
@@ -305,6 +306,53 @@ export default function WhyPage() {
           </div>
         </div>
       </section>
+
+      <FAQSection
+        title="Solar Energy FAQs"
+        subtitle="Common questions about switching to solar power"
+        faqs={[
+          {
+            question: "How much can I save with solar panels?",
+            answer:
+              "Most homeowners save 70-90% on their electricity bills. With an average monthly bill of ₹5,000, you can save ₹3,500-4,500 per month. Over 20 years, this translates to savings of ₹8-12 lakhs, even after accounting for the initial investment.",
+          },
+          {
+            question: "How long do solar panels last?",
+            answer:
+              "Solar panels are designed to last 25-30 years with minimal maintenance. Most manufacturers provide a 25-year performance warranty, guaranteeing at least 80% efficiency after 25 years. The inverter typically needs replacement after 10-15 years.",
+          },
+          {
+            question: "What happens during monsoon and cloudy days?",
+            answer:
+              "Solar panels work even on cloudy days, though at reduced efficiency (10-25% of peak output). During monsoon, you can rely on grid power or battery backup. Net metering allows you to use excess power generated during sunny days.",
+          },
+          {
+            question: "Is my roof suitable for solar installation?",
+            answer:
+              "Most roofs are suitable for solar installation. You need about 100 sq ft per kW of solar capacity. South-facing roofs are ideal, but east and west-facing roofs also work well. Our experts will assess your roof's suitability during the site visit.",
+          },
+          {
+            question: "What government subsidies are available?",
+            answer:
+              "The central government provides up to 40% subsidy for residential solar installations up to 3kW, and 20% for systems above 3kW. Many states offer additional subsidies and incentives. You can also claim tax benefits under Section 80C.",
+          },
+          {
+            question: "How long does installation take?",
+            answer:
+              "Residential solar installation typically takes 1-3 days depending on system size. The entire process from approval to commissioning takes 2-4 weeks, including permits, approvals, and grid connection procedures.",
+          },
+          {
+            question: "Do I need batteries with my solar system?",
+            answer:
+              "Batteries are optional. Grid-tied systems without batteries are more cost-effective and have faster payback periods. Batteries are recommended if you experience frequent power cuts or want complete energy independence.",
+          },
+          {
+            question: "What maintenance is required?",
+            answer:
+              "Solar panels require minimal maintenance - mainly cleaning dust and debris every few months. Annual professional inspection is recommended. Most systems come with monitoring apps to track performance and identify any issues.",
+          },
+        ]}
+      />
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600">
