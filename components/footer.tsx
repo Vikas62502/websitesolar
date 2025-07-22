@@ -1,4 +1,4 @@
-import { Zap } from "lucide-react"
+import { Zap, Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
 import Link from "next/link"
 
 export function Footer() {
@@ -28,7 +28,7 @@ export function Footer() {
                   Inverters
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/products" className="hover:text-white transition-colors">
                   Batteries
                 </Link>
@@ -37,7 +37,7 @@ export function Footer() {
                 <Link href="/products" className="hover:text-white transition-colors">
                   Accessories
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div>
@@ -58,11 +58,11 @@ export function Footer() {
                   Why Solar
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/companies" className="hover:text-white transition-colors">
                   Companies
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div>
@@ -95,6 +95,21 @@ export function Footer() {
               </li>
             </ul>
           </div>
+        </div>
+        {/* Social Media Icons */}
+        <div className="mt-8 flex justify-center gap-6">
+          <a href="https://facebook.com/solardealsindia" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <Facebook className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
+          </a>
+          <a href="https://twitter.com/solardealsindia" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <Twitter className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
+          </a>
+          <a href="https://linkedin.com/company/solardealsindia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <Linkedin className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
+          </a>
+          <a href="https://instagram.com/solardealsindia" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <Instagram className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
+          </a>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-6 sm:pt-8 text-center text-gray-400 text-sm sm:text-base">
           <p>&copy; 2024 SolarDeals India. All rights reserved.</p>

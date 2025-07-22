@@ -46,9 +46,9 @@ export function Navbar() {
               <Link href="/calculator" className={`text-gray-700 hover:text-orange-600 font-medium transition-colors ${pathname === "/calculator" ? "text-orange-600 underline" : ""}`}>
                 Calculator
               </Link>
-              <Link href="/companies" className={`text-gray-700 hover:text-orange-600 font-medium transition-colors ${pathname === "/companies" ? "text-orange-600 underline" : ""}`}>
+              {/* <Link href="/companies" className={`text-gray-700 hover:text-orange-600 font-medium transition-colors ${pathname === "/companies" ? "text-orange-600 underline" : ""}`}>
                 Companies
-              </Link>
+              </Link> */}
               <Link
                 href="/recommendations"
                 className={`text-gray-700 hover:text-orange-600 font-medium transition-colors ${pathname === "/recommendations" ? "text-orange-600 underline" : ""}`}

@@ -17,7 +17,7 @@ export default function HomePage() {
   const products = [
     {
       name: "Tata Solar 540W Mono PERC",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "https://res.cloudinary.com/du0cxgoic/image/upload/v1753183873/Untitled_design_2_zko8rw.png",
       alt: "Tata Solar Panel",
       originalPrice: "₹22,000",
       ourPrice: "₹18,500",
@@ -26,11 +26,14 @@ export default function HomePage() {
         "540W High Efficiency",
         "Mono PERC Technology",
         "Made in India",
+        "540W High Efficiency",
+        "Mono PERC Technology",
+        "Made in India",
       ],
     },
     {
       name: "Luminous 5KW Solar Inverter",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "https://res.cloudinary.com/du0cxgoic/image/upload/v1753183769/Untitled_design_1_ddk71t.png",
       alt: "Luminous Inverter",
       originalPrice: "₹52,000",
       ourPrice: "₹45,000",
@@ -39,11 +42,14 @@ export default function HomePage() {
         "MPPT Technology",
         "WiFi Monitoring",
         "Indian Brand",
+        "540W High Efficiency",
+        "Mono PERC Technology",
+        "Made in India",
       ],
     },
     {
       name: "Waaree 445W Bifacial Panel",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "https://res.cloudinary.com/du0cxgoic/image/upload/v1753184175/Untitled_design_3_besfwy.png",
       alt: "Waaree Solar Panel",
       originalPrice: "₹20,000",
       ourPrice: "₹16,800",
@@ -52,6 +58,9 @@ export default function HomePage() {
         "Bifacial Technology",
         "445W Output",
         "Premium Quality",
+        "540W High Efficiency",
+        "Mono PERC Technology",
+        "Made in India",
       ],
     },
   ]
@@ -341,7 +350,7 @@ export default function HomePage() {
             </div>
             <div>
               <Image
-                src="/placeholder.svg?height=400&width=500"
+                src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753183314/ChatGPT_Image_Jul_22_2025_04_50_57_PM_qglwhl.jpg"
                 alt="SolarDeals India team"
                 width={500}
                 height={400}
@@ -354,66 +363,45 @@ export default function HomePage() {
 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet Our Expert Team</h2>
             <p className="text-xl text-gray-600">Experienced professionals dedicated to your solar journey</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <Image
-                src="/placeholder.svg?height=200&width=200"
-                alt="Rajesh Kumar"
-                width={200}
-                height={200}
-                className="rounded-full mx-auto mb-4 w-32 h-32 object-cover"
-              />
-              <h3 className="text-lg font-semibold text-gray-900">Rajesh Kumar</h3>
-              <p className="text-orange-600 font-medium">CEO & Co-Founder</p>
-              <p className="text-sm text-gray-600 mt-2">15+ years in renewable energy, Former VP at Tata Power Solar</p>
-            </div>
-
-            <div className="text-center">
-              <Image
-                src="/placeholder.svg?height=200&width=200"
-                alt="Priya Sharma"
-                width={200}
-                height={200}
-                className="rounded-full mx-auto mb-4 w-32 h-32 object-cover"
-              />
-              <h3 className="text-lg font-semibold text-gray-900">Priya Sharma</h3>
-              <p className="text-orange-600 font-medium">CTO & Co-Founder</p>
-              <p className="text-sm text-gray-600 mt-2">Ex-Google engineer, MIT graduate, AI & marketplace expert</p>
-            </div>
-
-            <div className="text-center">
-              <Image
-                src="/placeholder.svg?height=200&width=200"
-                alt="Amit Patel"
-                width={200}
-                height={200}
-                className="rounded-full mx-auto mb-4 w-32 h-32 object-cover"
-              />
-              <h3 className="text-lg font-semibold text-gray-900">Amit Patel</h3>
-              <p className="text-orange-600 font-medium">COO & Co-Founder</p>
-              <p className="text-sm text-gray-600 mt-2">Former Flipkart operations head, supply chain expert</p>
-            </div>
-
-            <div className="text-center">
-              <Image
-                src="/placeholder.svg?height=200&width=200"
-                alt="Dr. Sunita Reddy"
-                width={200}
-                height={200}
-                className="rounded-full mx-auto mb-4 w-32 h-32 object-cover"
-              />
-              <h3 className="text-lg font-semibold text-gray-900">Dr. Sunita Reddy</h3>
-              <p className="text-orange-600 font-medium">Head of Engineering</p>
-              <p className="text-sm text-gray-600 mt-2">PhD in Solar Technology, 20+ years R&D experience</p>
-            </div>
+          {/* Single Team Image */}
+          <div className="mb-12">
+            <Image
+              src="/placeholder.svg?height=500&width=1200"
+              alt="SolarDeals India Expert Team"
+              width={1200}
+              height={500}
+              className="rounded-lg shadow-lg w-full h-64 sm:h-80 lg:h-96 xl:h-[500px] object-cover"
+            />
           </div>
 
-          <div className="text-center mt-12">
+          {/* Team Description */}
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-lg text-gray-600 mb-8">
+              Our diverse team of solar experts, engineers, and industry veterans brings together decades of experience
+              from leading companies like Tata Power Solar, Google, and Flipkart. We're united by our mission to make
+              solar energy accessible to every Indian household.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-orange-600 mb-2">50+</div>
+                <div className="text-gray-600">Team Members</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-orange-600 mb-2">100+</div>
+                <div className="text-gray-600">Years Combined Experience</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-orange-600 mb-2">15+</div>
+                <div className="text-gray-600">Industry Experts</div>
+              </div>
+            </div>
+
             <Button size="lg" variant="outline" asChild>
               <Link href="/about">
                 Meet the Full Team
@@ -423,6 +411,48 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Brands We Carry */}
+<section className="py-12 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-8">
+      <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Brands We Carry</h2>
+      <p className="text-lg text-gray-600">We partner with top Indian and global solar brands</p>
+    </div>
+    <div className="flex flex-wrap justify-center items-center gap-8">
+      {/* Example brand logos, replace src with your actual brand logo paths */}
+      <div className="flex flex-col items-center">
+        <Image src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753188404/Untitled_design_4_ctlbn8.png" alt="Tata Power Solar" width={120} height={60} className="mb-2" />
+        <span className="text-sm text-gray-700">Tata Power Solar</span>
+      </div>
+      <div className="flex flex-col items-center">
+        <Image src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753188404/Untitled_design_4_ctlbn8.png" alt="Luminous" width={120} height={60} className="mb-2" />
+        <span className="text-sm text-gray-700">Luminous</span>
+      </div>
+      <div className="flex flex-col items-center">
+        <Image src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753188404/Untitled_design_4_ctlbn8.png" alt="Waaree" width={120} height={60} className="mb-2" />
+        <span className="text-sm text-gray-700">Waaree</span>
+      </div>
+      <div className="flex flex-col items-center">
+        <Image src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753188404/Untitled_design_4_ctlbn8.png" alt="Tata Power Solar" width={120} height={60} className="mb-2" />
+        <span className="text-sm text-gray-700">Tata Power Solar</span>
+      </div>
+      <div className="flex flex-col items-center">
+        <Image src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753188404/Untitled_design_4_ctlbn8.png" alt="Luminous" width={120} height={60} className="mb-2" />
+        <span className="text-sm text-gray-700">Luminous</span>
+      </div>
+      <div className="flex flex-col items-center">
+        <Image src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753188404/Untitled_design_4_ctlbn8.png" alt="Waaree" width={120} height={60} className="mb-2" />
+        <span className="text-sm text-gray-700">Waaree</span>
+      </div>
+      <div className="flex flex-col items-center">
+        <Image src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753188404/Untitled_design_4_ctlbn8.png" alt="Tata Power Solar" width={120} height={60} className="mb-2" />
+        <span className="text-sm text-gray-700">Tata Power Solar</span>
+      </div>
+      {/* Add more brands as needed */}
+    </div>
+  </div>
+</section>
 
 
       {/* Why Choose Us */}
