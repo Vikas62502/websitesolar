@@ -29,11 +29,11 @@ export function Navbar() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center gap-2">
               <Image
-                src="/placeholder-logo.svg"
+                src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753165862/logo_Chairbord_Solar_1_1_1_1_tnsdh8.png"
                 alt="SolarDeals India Logo"
-                width={70}
-                height={20}
-                className="w-50 h-30 sm:w-18 sm:h-7 md:w-18 md:h-8"
+                width={150}
+                height={50}
+                className="w-50 h-50 sm:w-18 sm:h- md:w-25 md:h-19"
               />
               {/* <span className="text-lg sm:text-xl font-bold text-gray-900">SolarDeals India</span> */}
             </Link>
