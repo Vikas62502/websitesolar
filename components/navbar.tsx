@@ -95,13 +95,13 @@ export function Navbar() {
                 >
                   Calculator
                 </Link>
-                <Link
+                {/* <Link
                   href="/companies"
                   className={`block px-3 py-3 text-gray-700 hover:text-orange-600 font-medium rounded-md hover:bg-gray-50 transition-colors ${pathname === "/companies" ? "text-orange-600 underline" : ""}`}
                   onClick={() => setIsOpen(false)}
                 >
                   Companies
-                </Link>
+                </Link> */}
                 <Link
                   href="/recommendations"
                   className={`block px-3 py-3 text-gray-700 hover:text-orange-600 font-medium rounded-md hover:bg-gray-50 transition-colors ${pathname === "/recommendations" ? "text-orange-600 underline" : ""}`}

@@ -16,12 +16,13 @@ import { useLeadModal } from "@/hooks/use-lead-modal"
 import Calculator from "@/components/calculator-icon" // Declare the Calculator variable
 
 export default function CalculatorPage() {
-  const [showCalculator, setShowCalculator] = useState(false)
+  // Remove showCalculator state
   const [monthlyBill, setMonthlyBill] = useState(3000)
   const [roofArea, setRoofArea] = useState(500)
   const [location, setLocation] = useState("")
   const [roofType, setRoofType] = useState("")
   const [electricityRate, setElectricityRate] = useState([6])
+  const [showResults, setShowResults] = useState(false)
 
   const { isOpen, openModal, closeModal, modalProps } = useLeadModal()
 
@@ -35,8 +36,7 @@ export default function CalculatorPage() {
   const twentyYearSavings = annualSavings * 20 - systemCost
 
   const handleLeadSubmit = (data: any) => {
-    // Show calculator after lead form submission
-    setShowCalculator(true)
+    setShowResults(true)
   }
 
   return (
@@ -44,122 +44,95 @@ export default function CalculatorPage() {
       {/* Header */}
       <Navbar />
 
-      {!showCalculator && (
-        <div className="flex items-center justify-center min-h-[80vh] px-4">
-          <Card className="max-w-md w-full text-center">
-            <CardContent className="p-8">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Calculator className="h-8 w-8 text-orange-600" />
+      {/* Always show calculator form and results */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          {/* Input Form */}
+          <Card>
+            <CardHeader className="pb-4 sm:pb-6">
+              <CardTitle className="text-lg sm:text-xl">Enter Your Details</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 sm:space-y-6">
+              <div>
+                <Label htmlFor="monthly-bill">Monthly Electricity Bill (₹)</Label>
+                <Input
+                  id="monthly-bill"
+                  type="number"
+                  value={monthlyBill}
+                  onChange={(e) => setMonthlyBill(Number(e.target.value))}
+                  className="mt-1"
+                />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Solar Calculator</h2>
-              <p className="text-gray-600 mb-6">
-                Please fill in your details to access our advanced solar calculator and get personalized
-                recommendations.
-              </p>
-              <Button
-                onClick={() =>
-                  openModal({
-                    title: "Get Accurate Solar Calculations",
-                    subtitle: "Provide your details to get personalized solar estimates and recommendations",
-                    source: "calculator_page",
-                  })
-                }
-                className="w-full bg-orange-600 hover:bg-orange-700"
-              >
-                Get Started
-              </Button>
+
+              <div>
+                <Label htmlFor="roof-area">Available Roof Area (sq ft)</Label>
+                <Input
+                  id="roof-area"
+                  type="number"
+                  value={roofArea}
+                  onChange={(e) => setRoofArea(Number(e.target.value))}
+                  className="mt-1"
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="location">Location (State)</Label>
+                <Select value={location} onValueChange={setLocation}>
+                  <SelectTrigger className="mt-1">
+                    <SelectValue placeholder="Select your state" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="maharashtra">Maharashtra</SelectItem>
+                    <SelectItem value="gujarat">Gujarat</SelectItem>
+                    <SelectItem value="rajasthan">Rajasthan</SelectItem>
+                    <SelectItem value="karnataka">Karnataka</SelectItem>
+                    <SelectItem value="tamil-nadu">Tamil Nadu</SelectItem>
+                    <SelectItem value="andhra-pradesh">Andhra Pradesh</SelectItem>
+                    <SelectItem value="telangana">Telangana</SelectItem>
+                    <SelectItem value="uttar-pradesh">Uttar Pradesh</SelectItem>
+                    <SelectItem value="haryana">Haryana</SelectItem>
+                    <SelectItem value="punjab">Punjab</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div>
+                <Label htmlFor="roof-type">Roof Type</Label>
+                <Select value={roofType} onValueChange={setRoofType}>
+                  <SelectTrigger className="mt-1">
+                    <SelectValue placeholder="Select roof type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="concrete">Concrete/RCC</SelectItem>
+                    <SelectItem value="metal">Metal Sheet</SelectItem>
+                    <SelectItem value="tile">Tile Roof</SelectItem>
+                    <SelectItem value="asbestos">Asbestos Sheet</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div>
+                <Label>Electricity Rate (₹/unit): ₹{electricityRate[0]}</Label>
+                <Slider
+                  value={electricityRate}
+                  onValueChange={setElectricityRate}
+                  max={12}
+                  min={3}
+                  step={0.5}
+                  className="mt-2"
+                />
+                <div className="flex justify-between text-xs text-gray-500 mt-1">
+                  <span>₹3</span>
+                  <span>₹12</span>
+                </div>
+              </div>
             </CardContent>
           </Card>
-        </div>
-      )}
 
-      {showCalculator && (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-            {/* Input Form */}
-            <Card>
-              <CardHeader className="pb-4 sm:pb-6">
-                <CardTitle className="text-lg sm:text-xl">Enter Your Details</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 sm:space-y-6">
-                <div>
-                  <Label htmlFor="monthly-bill">Monthly Electricity Bill (₹)</Label>
-                  <Input
-                    id="monthly-bill"
-                    type="number"
-                    value={monthlyBill}
-                    onChange={(e) => setMonthlyBill(Number(e.target.value))}
-                    className="mt-1"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="roof-area">Available Roof Area (sq ft)</Label>
-                  <Input
-                    id="roof-area"
-                    type="number"
-                    value={roofArea}
-                    onChange={(e) => setRoofArea(Number(e.target.value))}
-                    className="mt-1"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="location">Location (State)</Label>
-                  <Select value={location} onValueChange={setLocation}>
-                    <SelectTrigger className="mt-1">
-                      <SelectValue placeholder="Select your state" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="maharashtra">Maharashtra</SelectItem>
-                      <SelectItem value="gujarat">Gujarat</SelectItem>
-                      <SelectItem value="rajasthan">Rajasthan</SelectItem>
-                      <SelectItem value="karnataka">Karnataka</SelectItem>
-                      <SelectItem value="tamil-nadu">Tamil Nadu</SelectItem>
-                      <SelectItem value="andhra-pradesh">Andhra Pradesh</SelectItem>
-                      <SelectItem value="telangana">Telangana</SelectItem>
-                      <SelectItem value="uttar-pradesh">Uttar Pradesh</SelectItem>
-                      <SelectItem value="haryana">Haryana</SelectItem>
-                      <SelectItem value="punjab">Punjab</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <Label htmlFor="roof-type">Roof Type</Label>
-                  <Select value={roofType} onValueChange={setRoofType}>
-                    <SelectTrigger className="mt-1">
-                      <SelectValue placeholder="Select roof type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="concrete">Concrete/RCC</SelectItem>
-                      <SelectItem value="metal">Metal Sheet</SelectItem>
-                      <SelectItem value="tile">Tile Roof</SelectItem>
-                      <SelectItem value="asbestos">Asbestos Sheet</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <Label>Electricity Rate (₹/unit): ₹{electricityRate[0]}</Label>
-                  <Slider
-                    value={electricityRate}
-                    onValueChange={setElectricityRate}
-                    max={12}
-                    min={3}
-                    step={0.5}
-                    className="mt-2"
-                  />
-                  <div className="flex justify-between text-xs text-gray-500 mt-1">
-                    <span>₹3</span>
-                    <span>₹12</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Results */}
+          {/* Results: Only show after lead form is submitted */}
+          
             <div className="space-y-4 sm:space-y-6">
+            {showResults && (
               <Card>
                 <CardHeader className="pb-4">
                   <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
@@ -182,7 +155,8 @@ export default function CalculatorPage() {
                   </div>
                 </CardContent>
               </Card>
-
+            )}
+            {showResults && (
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
@@ -211,7 +185,8 @@ export default function CalculatorPage() {
                   </div>
                 </CardContent>
               </Card>
-
+            )}
+            {showResults && (
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
@@ -229,58 +204,67 @@ export default function CalculatorPage() {
                   </p>
                 </CardContent>
               </Card>
-
+          )}
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button className="flex-1 h-11 sm:h-12" asChild>
-                  <Link href="/recommendations">Get Detailed Quote</Link>
+                <Button
+                  className="flex-1 h-11 sm:h-12"
+                  onClick={() =>
+                    openModal({
+                      title: "Get a Detailed Solar Quote",
+                      subtitle: "Provide your details to receive a personalized solar quote and expert recommendations.",
+                      source: "calculator_detailed_quote",
+                    })
+                  }
+                >
+                  Get Detailed Quote
                 </Button>
                 <Button variant="outline" className="flex-1 h-11 sm:h-12 bg-transparent" asChild>
                   <Link href="/products">View Products</Link>
                 </Button>
               </div>
             </div>
-          </div>
-
-          {/* Additional Information */}
-          <div className="mt-8 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Government Subsidies</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600">
-                  Get up to 40% subsidy on residential solar installations under PM-KUSUM scheme. Additional state
-                  subsidies may apply.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Net Metering</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600">
-                  Sell excess electricity back to the grid and earn credits on your electricity bill through net
-                  metering policies.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Maintenance</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600">
-                  Solar panels require minimal maintenance. Annual cleaning and inspection ensure optimal performance
-                  for 25+ years.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+          
         </div>
-      )}
+
+        {/* Additional Information */}
+        <div className="mt-8 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Government Subsidies</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-600">
+                Get up to 40% subsidy on residential solar installations under PM-KUSUM scheme. Additional state
+                subsidies may apply.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Net Metering</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-600">
+                Sell excess electricity back to the grid and earn credits on your electricity bill through net
+                metering policies.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Maintenance</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-600">
+                Solar panels require minimal maintenance. Annual cleaning and inspection ensure optimal performance
+                for 25+ years.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
 
       <LeadModal
         isOpen={isOpen}

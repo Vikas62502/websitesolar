@@ -288,7 +288,7 @@ export function LeadModal({
                 </a>{" "}
                 and{" "}
                 <a href="/terms-conditions" className="text-orange-600 hover:underline">
-                  Terms of Service
+                  Terms Conditions
                 </a>
               </label>
             </div>

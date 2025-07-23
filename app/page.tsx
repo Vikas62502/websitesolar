@@ -23,9 +23,9 @@ export default function HomePage() {
       ourPrice: "₹18,500",
       warranty: "25 Year Warranty",
       features: [
-        "540W High Efficiency",
-        "Mono PERC Technology",
-        "Made in India",
+        "MPPT Technology",
+        "WiFi Monitoring",
+        "Indian Brand",
         "540W High Efficiency",
         "Mono PERC Technology",
         "Made in India",
@@ -291,17 +291,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* About Us Preview */}
+      {/* About Us + Team Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: All Content */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">About SolarDeals India</h2>
               <p className="text-xl text-gray-600 mb-6">
                 Founded by renewable energy veterans, we're building India's most trusted solar marketplace to make
                 clean energy accessible to every household.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
                     <Shield className="h-4 w-4 text-orange-600" />
@@ -313,7 +314,6 @@ export default function HomePage() {
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
                     <Users className="h-4 w-4 text-blue-600" />
@@ -325,7 +325,6 @@ export default function HomePage() {
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
                     <Award className="h-4 w-4 text-green-600" />
@@ -338,8 +337,26 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-
-              <div className="mt-8">
+              <p className="text-lg text-gray-600 mb-8">
+                Our diverse team of solar experts, engineers, and industry veterans brings together decades of experience
+                from leading companies like Tata Power Solar, Google, and Flipkart. We're united by our mission to make
+                solar energy accessible to every Indian household.
+              </p>
+              {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">50+</div>
+                  <div className="text-gray-600">Team Members</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">100+</div>
+                  <div className="text-gray-600">Years Combined Experience</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">15+</div>
+                  <div className="text-gray-600">Industry Experts</div>
+                </div>
+              </div> */}
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" variant="outline" asChild>
                   <Link href="/about">
                     Learn More About Us
@@ -348,66 +365,16 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
+            {/* Right: Team Image Only */}
             <div>
               <Image
-                src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753183314/ChatGPT_Image_Jul_22_2025_04_50_57_PM_qglwhl.jpg"
-                alt="SolarDeals India team"
-                width={500}
-                height={400}
-                className="rounded-lg shadow-lg"
+                src="/placeholder.svg?height=500&width=1200"
+                alt="SolarDeals India Expert Team"
+                width={1200}
+                height={700}
+                className="rounded-lg shadow-lg w-full h-64 sm:h-80 lg:h-96 xl:h-[500px] object-cover"
               />
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet Our Expert Team</h2>
-            <p className="text-xl text-gray-600">Experienced professionals dedicated to your solar journey</p>
-          </div>
-
-          {/* Single Team Image */}
-          <div className="mb-12">
-            <Image
-              src="/placeholder.svg?height=500&width=1200"
-              alt="SolarDeals India Expert Team"
-              width={1200}
-              height={500}
-              className="rounded-lg shadow-lg w-full h-64 sm:h-80 lg:h-96 xl:h-[500px] object-cover"
-            />
-          </div>
-
-          {/* Team Description */}
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-lg text-gray-600 mb-8">
-              Our diverse team of solar experts, engineers, and industry veterans brings together decades of experience
-              from leading companies like Tata Power Solar, Google, and Flipkart. We're united by our mission to make
-              solar energy accessible to every Indian household.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-orange-600 mb-2">50+</div>
-                <div className="text-gray-600">Team Members</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-orange-600 mb-2">100+</div>
-                <div className="text-gray-600">Years Combined Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-orange-600 mb-2">15+</div>
-                <div className="text-gray-600">Industry Experts</div>
-              </div>
-            </div>
-
-            <Button size="lg" variant="outline" asChild>
-              <Link href="/about">
-                Meet the Full Team
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
           </div>
         </div>
       </section>
