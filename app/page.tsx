@@ -65,6 +65,37 @@ export default function HomePage() {
     },
   ]
 
+  const brands = [
+    {
+      name: "Waaree",
+      logo: "https://mma.prnewswire.com/media/2585961/5088649/Waaree_Americas_Logo.jpg?p=twitter",
+    },
+    {
+      name: "Luminous",
+      logo: "https://cdn.freelogovectors.net/wp-content/uploads/2023/12/luminous-logo-freelogovectors.net_-640x400.png",
+    },
+    {
+      name: "Tata Power Solar",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgHZZcCeFpQZy5JZmEVhAtlsig5j_R_XhvjA&s",
+    },
+    {
+      name: "Vikram",
+      logo: "https://stockify.net.in/wp-content/uploads/2023/01/Vikram-01-500x281-1.jpg",
+    },
+    {
+      name: "Adani",
+      logo: "https://img-cdn.publive.online/fit-in/1200x675/filters:format(webp)/bmi/media/media_files/UUxYZ6kIx0XOlrDg6uXI.png",
+    },
+    {
+      name: "Havells",
+      logo: "https://ornatesolar.com/wp-content/uploads/2021/05/Havells.png",
+    },
+    {
+      name: "RenewSys",
+      logo: "https://cdn.enfsolar.com/ID/logo/6459e8715f7a0.jpg?v=1",
+    },
+  ]
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -387,36 +418,11 @@ export default function HomePage() {
       <p className="text-lg text-gray-600">We partner with top Indian and global solar brands</p>
     </div>
     <div className="flex flex-wrap justify-center items-center gap-8">
-      {/* Example brand logos, replace src with your actual brand logo paths */}
-      <div className="flex flex-col items-center">
-        <Image src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753188404/Untitled_design_4_ctlbn8.png" alt="Tata Power Solar" width={120} height={60} className="mb-2" />
-        <span className="text-sm text-gray-700">Tata Power Solar</span>
-      </div>
-      <div className="flex flex-col items-center">
-        <Image src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753188404/Untitled_design_4_ctlbn8.png" alt="Luminous" width={120} height={60} className="mb-2" />
-        <span className="text-sm text-gray-700">Luminous</span>
-      </div>
-      <div className="flex flex-col items-center">
-        <Image src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753188404/Untitled_design_4_ctlbn8.png" alt="Waaree" width={120} height={60} className="mb-2" />
-        <span className="text-sm text-gray-700">Waaree</span>
-      </div>
-      <div className="flex flex-col items-center">
-        <Image src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753188404/Untitled_design_4_ctlbn8.png" alt="Tata Power Solar" width={120} height={60} className="mb-2" />
-        <span className="text-sm text-gray-700">Tata Power Solar</span>
-      </div>
-      <div className="flex flex-col items-center">
-        <Image src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753188404/Untitled_design_4_ctlbn8.png" alt="Luminous" width={120} height={60} className="mb-2" />
-        <span className="text-sm text-gray-700">Luminous</span>
-      </div>
-      <div className="flex flex-col items-center">
-        <Image src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753188404/Untitled_design_4_ctlbn8.png" alt="Waaree" width={120} height={60} className="mb-2" />
-        <span className="text-sm text-gray-700">Waaree</span>
-      </div>
-      <div className="flex flex-col items-center">
-        <Image src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753188404/Untitled_design_4_ctlbn8.png" alt="Tata Power Solar" width={120} height={60} className="mb-2" />
-        <span className="text-sm text-gray-700">Tata Power Solar</span>
-      </div>
-      {/* Add more brands as needed */}
+      {brands.map((brand) => (
+        <div key={brand.name} className="flex flex-col items-center">
+          <Image src={brand.logo} alt={brand.name} width={120} height={60} className="mb-2" />
+        </div>
+      ))}
     </div>
   </div>
 </section>
