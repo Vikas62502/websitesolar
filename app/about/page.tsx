@@ -45,27 +45,6 @@ const founders = [
 //   { year: "2024", event: "10,000+ happy customers and ₹50Cr+ in savings generated" },
 // ]
 
-const testimonials = [
-  {
-    name: "Sunita Verma",
-    location: "Pune, Maharashtra",
-    quote: "SolarDeals India made my switch to solar seamless and affordable. My electricity bills have dropped by 80%!",
-    image: "/placeholder.svg?height=100&width=100",
-  },
-  {
-    name: "Rakesh Singh",
-    location: "Jaipur, Rajasthan",
-    quote: "The team was professional and transparent. I recommend SolarDeals to anyone considering solar for their home.",
-    image: "/placeholder.svg?height=100&width=100",
-  },
-  {
-    name: "Priya Nair",
-    location: "Kochi, Kerala",
-    quote: "Excellent service and support throughout the installation. I feel good about helping the environment too!",
-    image: "/placeholder.svg?height=100&width=100",
-  },
-]
-
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -180,34 +159,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Customer Testimonials Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">What Our Customers Say</h2>
-            <p className="text-lg text-gray-600">Hear from homeowners who went solar with us</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {testimonials.map((testimonial, idx) => (
-              <Card key={idx} className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-6 flex flex-col items-center">
-                  <Image
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    width={80}
-                    height={80}
-                    className="rounded-full mb-4"
-                  />
-                  <p className="text-gray-700 italic mb-4">"{testimonial.quote}"</p>
-                  <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                  <div className="text-sm text-gray-500">{testimonial.location}</div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      
       {/* Company Journey */}
       {/* <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
