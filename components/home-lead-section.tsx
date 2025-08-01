@@ -81,12 +81,6 @@ export function HomeLeadSection({ variant = "hero" }: HomeLeadSectionProps) {
           <Calculator className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
           Free Site Visit
         </Button>
-        <Button size="lg" variant="outline" className="h-12 sm:h-14 text-sm sm:text-base bg-transparent" asChild>
-          <Link href="/products">
-            View Products
-            <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-          </Link>
-        </Button>
       </div>
       <LeadModal
         isOpen={isOpen}

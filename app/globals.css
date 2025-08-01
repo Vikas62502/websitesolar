@@ -92,3 +92,62 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  @keyframes slideIn {
+    0% {
+      transform: translateX(100%) scale(0.8) rotateY(15deg);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0) scale(1) rotateY(0deg);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideOut {
+    0% {
+      transform: translateX(0) scale(1) rotateY(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-100%) scale(0.8) rotateY(-15deg);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes reel {
+    0% {
+      transform: translateX(0) scale(1) rotateY(0deg);
+      opacity: 1;
+    }
+    25% {
+      transform: translateX(-25%) scale(0.9) rotateY(-5deg);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateX(-50%) scale(0.8) rotateY(-10deg);
+      opacity: 0.6;
+    }
+    75% {
+      transform: translateX(-75%) scale(0.9) rotateY(-5deg);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateX(-100%) scale(1) rotateY(0deg);
+      opacity: 1;
+    }
+  }
+  
+  .animate-slideIn {
+    animation: slideIn 0.7s ease-out forwards;
+  }
+  
+  .animate-slideOut {
+    animation: slideOut 0.7s ease-out forwards;
+  }
+  
+  .animate-reel {
+    animation: reel 0.8s ease-in-out forwards;
+  }
+}
