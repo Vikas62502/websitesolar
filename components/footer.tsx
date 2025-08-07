@@ -1,5 +1,6 @@
 import { Zap, Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Footer() {
   return (
@@ -8,11 +9,16 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <Zap className="h-6 w-6 sm:h-8 sm:w-8 text-orange-500" />
-              <span className="text-lg sm:text-xl font-bold">SolarDeals India</span>
+            <Image
+                src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753789133/logo_Chairbord_Solar_1_1_avkjps.png"
+                alt="Chairbord Solar Logo"
+                width={150}
+                height={50}
+                className="w-50 h-50 sm:w-18 sm:h- md:w-25 md:h-19"
+              />
             </div>
-            <p className="text-gray-400 text-sm sm:text-base">
-              India's leading solar marketplace connecting customers with the best solar products and services.
+            <p className="text-gray-400 text-sm sm:text-base t">
+            Chairbord Solar is a leading solar energy company in Jaipur, offering end-to-end solar solutions with trusted technology, expert installation, and long-term support.
             </p>
           </div>
           <div>

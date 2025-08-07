@@ -15,26 +15,47 @@ export default function ContactPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const faqs = [
     {
-      question: "How quickly can I get a solar quote?",
+      question: "How can I schedule a free site visit or consultation?",
       answer:
-        "You can get an instant estimate using our solar calculator. For a detailed quote, our experts will contact you within 24 hours after you submit your requirements.",
+        "You can easily schedule a free site visit or consultation by filling out the contact form on this page, calling us directly, or sending us an email. Just share your basic details and location — and our team will get back to you within 24 hours to confirm the visit timing.",
     },
     {
-      question: "Do you provide installation services?",
+      question: "What’s the best way to contact Chairbord — phone, email, or form?",
       answer:
-        "Yes, we work with certified installation partners across India. We handle the entire process from design to commissioning and provide ongoing support.",
+        "The quickest and most convenient way to connect with us is via WhatsApp. You can chat with our support team in real time, ask questions, or request a callback. Simply click the WhatsApp icon on our website or message us directly at +91 9785230023. Alternatively, you can also fill out the contact form or email us — we typically respond within 24 hours.",
     },
     {
-      question: "What financing options are available?",
+      question: "When can I expect a reply after submitting the contact form?",
       answer:
-        "We offer various financing options including zero down payment plans, EMI options, and help with government subsidies. Our team will help you find the best financing solution.",
+        "You can expect a response from our team within 24 business hours. If you contact us during our working hours (Mon–Sat, 9 AM to 6 PM), we usually reply the same day.",
     },
     {
-      question: "How long does installation take?",
+      question: "Do I need an appointment before visiting your office?",
       answer:
-        "Typical residential installations take 1-3 days depending on system size. The entire process from approval to commissioning usually takes 2-4 weeks.",
+        "While walk-ins are welcome during business hours, we recommend scheduling an appointment in advance to ensure that a dedicated expert is available to assist you without any wait. You can call us or fill out the contact form to book your visit.",
+    },
+    {
+      question: "Who should I contact for partnership or dealership inquiries?",
+      answer:
+        "For partnership or dealership inquiries, please email us at info@chairbordsolar.com or call us directly at +91 9251666646. Our team will be happy to assist you.",
+    },
+    {
+      question: "What documents are required for a solar subsidy application?",
+      answer:
+        "Document requirements can vary slightly depending on your location and DISCOM. The best way to ensure you have the correct paperwork is to connect with our experts — they’ll guide you through the entire process and help you prepare everything needed for a smooth subsidy application.",
+    },
+    {
+      question: "Is your customer support available on Sundays or public holidays?",
+      answer:
+        "Our customer support team is available Monday to Saturday, from 9:00 AM to 6:00 PM. We are closed on Sundays and public holidays, but you can still submit your queries via our contact form or email, and we’ll get back to you on the next working day.",
+    },
+    {
+      question: "What should I do if I didn’t receive a response within 24 hours?",
+      answer:
+        "We’re sorry if you haven’t heard back from us yet! While we aim to respond within 24 hours (Mon–Sat), delays may occasionally occur due to high volumes. If it’s been more than a day, feel free to reach out again via call or WhatsApp or email us — we’ll make sure to prioritize your query.",
     },
   ]
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
@@ -44,11 +65,10 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Get in <span className="text-orange-600">Touch</span>
+              Contact <span className="text-orange-600">Us</span>
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto">
-              Have questions about solar energy? Need help choosing the right system? Our solar experts are here to help
-              you make the switch to clean energy.
+              Have questions about solar energy? Need help choosing the right system? Our solar experts are here to guide you through every step and make your switch to clean energy simple and hassle-free.
             </p>
           </div>
         </div>
@@ -63,13 +83,13 @@ export default function ContactPage() {
                 <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Phone className="h-6 w-6 text-orange-600" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Call Us</h3>
-                <p className="text-gray-600 text-sm mb-4">Speak directly with our solar experts</p>
+                <h2 className="text-lg font-semibold mb-2">Phone</h2>
+                <p className="text-gray-600 text-sm mb-4">Talk to Our Solar Experts</p>
                 <div className="space-y-2 text-sm">
-                  <p className="font-medium">9269666646</p>
-                  <p className="text-gray-500">Toll-free • Mon-Sat, 9 AM - 7 PM</p>
+                  <p className="font-medium">+91 97852 30023 | +91 96721 20012 | +91 92516 66646</p>
+                  <p className="text-gray-500">Available: Mon–Sat, 9 AM – 6 PM</p>
                 </div>
-                <a href="tel:9269666646">
+                <a href="tel:9785230023">
                   <Button className="mt-4 w-full bg-orange-600 hover:bg-orange-700">Call Now</Button>
                 </a>
               </CardContent>
@@ -80,16 +100,14 @@ export default function ContactPage() {
                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Mail className="h-6 w-6 text-green-600" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Email Us</h3>
-                <p className="text-gray-600 text-sm mb-4">Send us your detailed requirements</p>
+                <h2 className="text-lg font-semibold mb-2">Email</h2>
+                <p className="text-gray-600 text-sm mb-4">Connect with Our Solar Experts</p>
                 <div className="space-y-2 text-sm">
-                  <p className="font-medium">connect@chairbord.in</p>
-                  <p className="text-gray-500">Response within 4 hours</p>
+                  <p className="font-medium">info@chairbordsolar.com</p>
+                  <p className="text-gray-500">Support Hours: Mon–Sat, 9 AM – 6 PM</p>
                 </div>
-                <a href="mailto:connect@chairbord.in">
-                  <Button variant="outline" className="mt-4 w-full bg-transparent">
-                    Send Email
-                  </Button>
+                <a href="mailto:info@chairbordsolar.com">
+                  <Button className="mt-4 w-full bg-orange-600 hover:bg-orange-700">Send Email</Button>
                 </a>
               </CardContent>
             </Card>
@@ -104,8 +122,8 @@ export default function ContactPage() {
             {/* Contact Form */}
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl sm:text-2xl">Send Us a Message</CardTitle>
-                <p className="text-gray-600">Fill out the form below and we'll get back to you within 24 hours</p>
+                <h2 className="text-xl sm:text-2xl font-bold">Get in touch with us</h2>
+                <p className="text-gray-600">We’re here to help! Just fill in your details and we’ll be in touch shortly.</p>
               </CardHeader>
               <CardContent>
                 <form className="space-y-6">
@@ -187,18 +205,16 @@ export default function ContactPage() {
               {/* Office Locations */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                  <h2 className="flex items-center gap-2 sm:text-2xl font-bold">
                     <MapPin className="h-5 w-5 text-orange-600" />
-                    Our Office
-                  </CardTitle>
+                    Visit Our Office
+                  </h2>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>
-                    <h4 className="font-semibold text-gray-900">Head Office - Gurugram</h4>
+                    <h3 className="font-semibold text-gray-900">Chairbord Solar</h3>
                     <p className="text-gray-600 text-sm mt-1">
-                      SolarDeals India Pvt. Ltd.<br />
-                      Tower A, Cyber City<br />
-                      Gurugram, Haryana 122002
+                      Plot No. 10, Ground Floor, Shri Shyam Vihar,<br/> Kalwar Road, Gokulpura, Jaipur – 302012<br/>Rajasthan, India
                     </p>
                   </div>
                   {/* Google Maps Embed */}
@@ -231,53 +247,20 @@ export default function ContactPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
+                  <p className="text-gray-600 text-sm mb-2">
+                    Our team is available to assist you:
+                  </p>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span>Monday - Friday</span>
-                      <span className="font-medium">9:00 AM - 7:00 PM</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Saturday</span>
-                      <span className="font-medium">9:00 AM - 5:00 PM</span>
+                      <span>Monday - Saturday</span>
+                      <span className="font-medium">9:00 AM - 6:00 PM</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Sunday</span>
                       <span className="font-medium">Closed</span>
                     </div>
                     <div className="pt-2 border-t">
-                      <p className="text-orange-600 font-medium">Emergency Support: 24/7</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Support Channels */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Headphones className="h-5 w-5 text-green-600" />
-                    Support Channels
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <Phone className="h-4 w-4 text-gray-400" />
-                      <div>
-                        <p className="font-medium">Customer Support</p>
-                        <a href="tel:9269666646">
-                          <p className="text-sm text-gray-600 underline">9269666646</p>
-                        </a>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Mail className="h-4 w-4 text-gray-400" />
-                      <div>
-                        <p className="font-medium">General Inquiries</p>
-                        <a href="mailto:connect@chairbord.in">
-                          <p className="text-sm text-gray-600 underline">connect@chairbord.in</p>
-                        </a>
-                      </div>
+                      <p className="text-orange-600 font-medium">Visit us during these hours for consultations or assistance.</p>
                     </div>
                   </div>
                 </CardContent>

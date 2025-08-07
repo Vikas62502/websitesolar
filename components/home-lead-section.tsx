@@ -79,7 +79,7 @@ export function HomeLeadSection({ variant = "hero" }: HomeLeadSectionProps) {
           onClick={handleCalculatorClick}
         >
           <Calculator className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-          Free Site Visit
+          Book Your Free Site Visit Today
         </Button>
       </div>
       <LeadModal

@@ -941,7 +941,9 @@ export default function ProductsPage() {
                   <CardContent>
                     <div className="space-y-2 sm:space-y-3">
                       <div>
-                        <h3 className="font-semibold text-base sm:text-lg line-clamp-2">{product.name}</h3>
+                        <a href={`#${product.category.replace(/\s+/g, '').toLowerCase()}`} className="font-semibold text-base sm:text-lg line-clamp-2 hover:text-orange-600 transition-colors">
+                          {product.name}
+                        </a>
                         <p className="text-sm text-gray-600">{product.brand}</p>
                       </div>
 
@@ -1025,3 +1027,5 @@ export default function ProductsPage() {
     </div>
   )
 }
+
+
