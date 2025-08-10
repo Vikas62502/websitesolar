@@ -373,7 +373,7 @@ export default function CareersPage() {
                   <Label htmlFor="coverLetter">Cover Letter</Label>
                   <Textarea
                     id="coverLetter"
-                    placeholder="Tell us why you want to join SolarDeals India and what you can bring to our team..."
+                    placeholder="Tell us why you want to join Chairbord Solar and what you can bring to our team..."
                     className="mt-1"
                     rows={5}
                   />

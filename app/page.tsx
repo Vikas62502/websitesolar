@@ -662,7 +662,7 @@ export default function HomePage() {
             <div>
               <Image
                 src="/placeholder.svg?height=500&width=1200"
-                alt="SolarDeals India Expert Team"
+                alt="Chairbord Solar Expert Team"
                 width={1200}
                 height={700}
                 className="rounded-lg shadow-lg w-full h-64 sm:h-80 lg:h-96 xl:h-[500px] object-cover transition duration-200 transform hover:scale-105 hover:shadow-2xl"
@@ -1367,18 +1367,17 @@ export default function HomePage() {
       </section>
 
        {/* Brands We Carry */}
-       <section className="py-12 bg-gray-50">
+       <section className="py-12 bg-gray-50 overflow-x-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Authorized Partnerships</h2>
             <p className="text-lg text-gray-600">We're proudly partnered with 15+ trusted solar brands to ensure you get the most reliable and efficient solar solutions for every need.</p>
           </div>
           {/* Infinite Horizontal Brand Carousel (Mobile & Desktop) */}
-          <div className="w-full">
+          <div className="w-full overflow-x-hidden">
             <div
-              className="flex items-center gap-8 py-4 animate-scroll-x"
+              className="flex items-center gap-8 py-4 animate-scroll-x w-full"
               style={{
-                minWidth: "max-content",
                 animation: "scroll-x 30s linear infinite"
               }}
               onMouseEnter={e => e.currentTarget.style.animationPlayState = 'paused'}

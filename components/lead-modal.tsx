@@ -282,7 +282,7 @@ export function LeadModal({
                 onCheckedChange={(checked) => handleInputChange("agreeToTerms", checked as boolean)}
               />
               <label htmlFor="terms" className="text-sm text-gray-600">
-                I agree to receive calls/SMS from SolarDeals India and accept the{" "}
+                I agree to receive calls/SMS from Chairbord Solar and accept the{" "}
                 <a href="/privacy-policy" className="text-orange-600 hover:underline">
                   Privacy Policy
                 </a>{" "}

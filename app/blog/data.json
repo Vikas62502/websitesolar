@@ -1,0 +1,88 @@
+{
+  "blogPosts": [
+    {
+      "id": 1,
+      "title": "Benefits of Switching to Solar Energy",
+      "author": "Chairbord Solar Team",
+      "date": "January 10, 2024",
+      "category": "Solar Energy Guide",
+      "categoryColor": "blue",
+      "snippet": "Learn how solar energy can reduce your electricity bills, lower your carbon footprint, and contribute to a sustainable future. Discover the financial and environmental benefits of going solar with our expert insights.",
+      "image": {
+        "icon": "BookOpen",
+        "color": "blue",
+        "gradient": "from-blue-100 to-blue-200"
+      }
+    },
+    {
+      "id": 2,
+      "title": "How to Choose the Right Solar Panels for Your Home",
+      "author": "Chairbord Solar Team",
+      "date": "December 15, 2023",
+      "category": "Solar Panels Guide",
+      "categoryColor": "green",
+      "snippet": "Choosing the right solar panels can be overwhelming. This guide breaks down the key factors to consider, including efficiency, durability, and cost, to help you make an informed decision.",
+      "image": {
+        "icon": "BookOpen",
+        "color": "green",
+        "gradient": "from-green-100 to-green-200"
+      }
+    },
+    {
+      "id": 3,
+      "title": "The Future of Solar Energy in India",
+      "author": "Chairbord Solar Team",
+      "date": "November 20, 2023",
+      "category": "Future of Solar",
+      "categoryColor": "purple",
+      "snippet": "Explore the exciting advancements in solar technology and how India is poised to become a global leader in renewable energy. Stay informed about the latest trends and policies shaping the industry.",
+      "image": {
+        "icon": "BookOpen",
+        "color": "purple",
+        "gradient": "from-purple-100 to-purple-200"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Complete Guide to Solar Panel Installation",
+      "author": "Chairbord Solar Team",
+      "date": "October 15, 2023",
+      "category": "Solar Installation",
+      "categoryColor": "orange",
+      "snippet": "From site assessment to final connection, learn everything you need to know about solar panel installation. Get expert tips on preparation, permits, and what to expect during the process.",
+      "image": {
+        "icon": "BookOpen",
+        "color": "orange",
+        "gradient": "from-orange-100 to-orange-200"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Essential Solar Panel Maintenance Tips",
+      "author": "Chairbord Solar Team",
+      "date": "September 28, 2023",
+      "category": "Solar Maintenance",
+      "categoryColor": "teal",
+      "snippet": "Keep your solar panels performing at their best with our comprehensive maintenance guide. Learn about cleaning schedules, monitoring systems, and when to call professionals.",
+      "image": {
+        "icon": "BookOpen",
+        "color": "teal",
+        "gradient": "from-teal-100 to-teal-200"
+      }
+    },
+    {
+      "id": 6,
+      "title": "Solar Financing Options: Making Solar Affordable",
+      "author": "Chairbord Solar Team",
+      "date": "August 12, 2023",
+      "category": "Solar Financing",
+      "categoryColor": "pink",
+      "snippet": "Discover various financing options for solar installation including loans, leases, and government incentives. Find the best payment plan that fits your budget and energy goals.",
+      "image": {
+        "icon": "BookOpen",
+        "color": "pink",
+        "gradient": "from-pink-100 to-pink-200"
+      }
+    }
+  ]
+} 

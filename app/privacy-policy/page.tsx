@@ -120,7 +120,7 @@ export default function PrivacyPolicyPage() {
                   <h3 className="font-semibold text-gray-900 mb-2">Legal Requirements</h3>
                   <p className="text-gray-600">
                     We may disclose your information if required by law, regulation, or legal process, or to protect the
-                    rights, property, or safety of SolarDeals India, our users, or others.
+                    rights, property, or safety of Chairbord Solar, our users, or others.
                   </p>
                 </div>
               </CardContent>
@@ -288,7 +288,7 @@ export default function PrivacyPolicyPage() {
                     <strong>Phone:</strong> 1800-123-SOLAR
                   </p>
                   <p>
-                    <strong>Address:</strong> SolarDeals India Pvt. Ltd., Tower A, Cyber City, Gurugram, Haryana 122002
+                    <strong>Address:</strong> Chairbord Solar Pvt. Ltd., Tower A, Cyber City, Gurugram, Haryana 122002
                   </p>
                 </div>
                 <p className="text-gray-600 mt-4">We will respond to your inquiry within 30 days.</p>

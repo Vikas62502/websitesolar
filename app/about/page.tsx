@@ -266,7 +266,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="font-semibold mb-2">Head Office</h3>
                 <p className="text-sm text-gray-600">
-                  SolarDeals India Pvt. Ltd.
+                  Chairbord Solar Pvt. Ltd.
                   <br />
                   Tower A, Cyber City
                   <br />

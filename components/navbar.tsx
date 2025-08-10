@@ -30,12 +30,12 @@ export function Navbar() {
             <Link href="/" className="flex items-center gap-2">
               <Image
                 src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753165862/logo_Chairbord_Solar_1_1_1_1_tnsdh8.png"
-                alt="SolarDeals India Logo"
+                alt="Chairbord Solar Logo"
                 width={150}
                 height={50}
                 className="w-50 h-50 sm:w-18 sm:h- md:w-25 md:h-19"
               />
-              {/* <span className="text-lg sm:text-xl font-bold text-gray-900">SolarDeals India</span> */}
+              {/* <span className="text-lg sm:text-xl font-bold text-gray-900">Chairbord Solar</span> */}
             </Link>
 
             {/* Desktop Navigation */}

@@ -99,6 +99,11 @@ export function Footer() {
                   Terms & Conditions
                 </Link>
               </li>
+              <li>
+                <Link href="/blog" className="hover:text-white transition-colors">
+                  Blogs
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -118,7 +123,7 @@ export function Footer() {
           </a>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-6 sm:pt-8 text-center text-gray-400 text-sm sm:text-base">
-          <p>&copy; 2024 SolarDeals India. All rights reserved.</p>
+          <p>&copy; 2024 Chairbord Solar. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -38,13 +38,13 @@ export default function TermsConditionsPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">
-                  By accessing and using the SolarDeals India website and services, you accept and agree to be bound by
+                  By accessing and using the Chairbord Solar website and services, you accept and agree to be bound by
                   the terms and provision of this agreement. If you do not agree to abide by the above, please do not
                   use this service.
                 </p>
                 <p className="text-gray-600">
                   These Terms and Conditions ("Terms") govern your use of our website located at solardeals.in (the
-                  "Service") operated by SolarDeals India Pvt. Ltd. ("us", "we", or "our").
+                  "Service") operated by Chairbord Solar Pvt. Ltd. ("us", "we", or "our").
                 </p>
               </CardContent>
             </Card>
@@ -59,7 +59,7 @@ export default function TermsConditionsPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">
-                  Permission is granted to temporarily download one copy of the materials on SolarDeals India's website
+                  Permission is granted to temporarily download one copy of the materials on Chairbord Solar's website
                   for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer
                   of title, and under this license you may not:
                 </p>
@@ -88,7 +88,7 @@ export default function TermsConditionsPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">SolarDeals India provides the following services:</p>
+                <p className="text-gray-600 mb-4">Chairbord Solar provides the following services:</p>
                 <ul className="list-disc list-inside text-gray-600 space-y-2 ml-4">
                   <li>Solar product marketplace connecting customers with manufacturers and installers</li>
                   <li>Solar system design and cost estimation tools</li>
@@ -119,7 +119,7 @@ export default function TermsConditionsPage() {
                   <li>Use our services only for lawful purposes</li>
                   <li>Not interfere with or disrupt our services or servers</li>
                   <li>Not attempt to gain unauthorized access to our systems</li>
-                  <li>Respect the intellectual property rights of SolarDeals India and third parties</li>
+                  <li>Respect the intellectual property rights of Chairbord Solar and third parties</li>
                   <li>Comply with all applicable laws and regulations</li>
                 </ul>
               </CardContent>
@@ -212,7 +212,7 @@ export default function TermsConditionsPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">
-                  In no event shall SolarDeals India or its suppliers be liable for any damages (including, without
+                  In no event shall Chairbord Solar or its suppliers be liable for any damages (including, without
                   limitation, damages for loss of data or profit, or due to business interruption) arising out of the
                   use or inability to use our services, even if we have been notified orally or in writing of the
                   possibility of such damage.
@@ -314,7 +314,7 @@ export default function TermsConditionsPage() {
                     <strong>Phone:</strong> 1800-123-SOLAR
                   </p>
                   <p>
-                    <strong>Address:</strong> SolarDeals India Pvt. Ltd., Tower A, Cyber City, Gurugram, Haryana 122002
+                    <strong>Address:</strong> Chairbord Solar Pvt. Ltd., Tower A, Cyber City, Gurugram, Haryana 122002
                   </p>
                 </div>
               </CardContent>
