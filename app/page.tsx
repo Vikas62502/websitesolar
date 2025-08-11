@@ -11,6 +11,9 @@ import { Footer } from "@/components/footer"
 import { HomeLeadSection } from "@/components/home-lead-section"
 import { LeadModal } from "@/components/lead-modal"
 import { FAQSection } from "@/components/faq-section"
+import Inverter from "@/Assets/images/Inverter.png";
+import Panel from "@/Assets/images/Panel.png";
+import resimage from "@/Assets/images/resimage.png";
 
 export default function HomePage() {
   const [leadProduct, setLeadProduct] = useState<string | null>(null)
@@ -31,32 +34,29 @@ export default function HomePage() {
 
   const products = [
     {
-      name: "Tata Solar 540W Mono PERC",
-      image: "/placeholder.svg?height=200&width=335",
-      alt: "Tata Solar Panel",
-      originalPrice: "₹22,000",
-      ourPrice: "₹18,500",
-      warranty: "25 Year Warranty",
-      rating: 4.8
+      name: "Solar Panels",
+      category: "Panels",
+      image: Panel,
+      alt: "Solar Panels Category",
+      description: "High-efficiency solar panels from top brands like Tata, Waaree, and Adani. 25-year warranty with mono PERC and bifacial technology options.",
+      features: ["25 Year Warranty", "High Efficiency", "Multiple Brands", "Government Approved"]
     },
     {
-      name: "Luminous 5KW Solar Inverter",
-      image: "/placeholder.svg?height=200&width=335",
-      alt: "Luminous Inverter",
-      originalPrice: "₹52,000",
-      ourPrice: "₹45,000",
-      warranty: "5 Year Warranty",
-      rating: 4.6
+      name: "Solar Inverters", 
+      category: "Inverters",
+      image: Inverter,
+      alt: "Solar Inverters Category",
+      description: "Grid-tied and hybrid inverters from Luminous, Genus, and Secure. Smart monitoring and battery backup support available.",
+      features: ["5 Year Warranty", "Smart Monitoring", "Grid-Tied & Hybrid", "Battery Ready"]
     },
     {
-      name: "Waaree 445W Bifacial Panel",
+      name: "Net Meters",
+      category: "Meters",
       image: "/placeholder.svg?height=200&width=335",
-      alt: "Waaree Solar Panel",
-      originalPrice: "₹20,000",
-      ourPrice: "₹16,800",
-      warranty: "25 Year Warranty",
-      rating: 4.7
-    },
+      alt: "Net Meters Category", 
+      description: "Bi-directional net meters for residential and commercial installations. Smart meters with real-time monitoring display.",
+      features: ["3 Year Warranty", "Bi-directional", "Single & Three Phase", "Smart Display"]
+    }
   ]
 
   const processSteps = [
@@ -451,37 +451,35 @@ export default function HomePage() {
               <div className="bg-white rounded-lg shadow-lg p-6 mx-4 transition-all duration-700 ease-out transform hover:scale-105 hover:shadow-2xl">
                 <div className="relative">
                   {/* Product Image */}
-                  <div className="relative group mb-4">
+                  <div className="relative group mb-4 flex justify-center">
                     <Image
                       src={products[currentProductIndex]?.image || "/placeholder.svg"}
                       alt={products[currentProductIndex]?.alt || "Solar Product"}
-                      width={335}
+                      width={200}
                       height={200}
-                      className="rounded-lg transition duration-200 transform hover:scale-105 hover:shadow-lg w-full h-auto"
+                      className="rounded-full transition duration-200 transform hover:scale-105 hover:shadow-lg w-48 h-48 object-cover"
                       onError={(e) => {
                         console.log("Image failed to load:", products[currentProductIndex]?.image);
                         e.currentTarget.src = "/placeholder.svg";
                       }}
                     />
-                    <div className="absolute inset-0 rounded-lg bg-gray-500 opacity-0 group-hover:opacity-20 transition duration-200 pointer-events-none" />
+                    <div className="absolute inset-0 rounded-full bg-gray-500 opacity-0 group-hover:opacity-20 transition duration-200 pointer-events-none" />
                   </div>
                   
-                  {/* Product Title and Rating */}
+                  {/* Product Title and Category */}
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-lg font-semibold text-gray-900 flex-1 mr-2">{products[currentProductIndex]?.name || "Product Name"}</h3>
-                    <div className="flex items-center gap-1 flex-shrink-0">
-                      <span className="text-yellow-400 text-sm">★</span>
-                      <span className="text-sm font-medium text-gray-600">{products[currentProductIndex]?.rating || "4.5"}</span>
-                    </div>
+                    <Badge variant="secondary" className="flex-shrink-0">{products[currentProductIndex]?.category || "Category"}</Badge>
                   </div>
                   
-                  {/* Price Information */}
-                  <div className="flex flex-col gap-2 mb-4">
-                    <div className="flex items-center gap-2">
-                      <span className="text-gray-400 line-through text-sm">{products[currentProductIndex]?.originalPrice || "₹0"}</span>
-                      <span className="text-orange-600 font-bold text-xl">{products[currentProductIndex]?.ourPrice || "₹0"}</span>
+                  {/* Description */}
+                  <div className="mb-4">
+                    <p className="text-gray-600 text-sm mb-3">{products[currentProductIndex]?.description || "Product description"}</p>
+                    <div className="flex flex-wrap gap-1">
+                      {products[currentProductIndex]?.features?.map((feature, index) => (
+                        <Badge key={index} variant="outline" className="text-xs">{feature}</Badge>
+                      ))}
                     </div>
-                    <Badge variant="secondary" className="w-fit">{products[currentProductIndex]?.warranty || "Warranty"}</Badge>
                   </div>
                   
                   {/* Know More Button */}
@@ -540,31 +538,29 @@ export default function HomePage() {
             {products.map((product) => (
               <Card key={product.name} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="relative group mb-4">
+                  <div className="relative group mb-4 flex justify-center">
                     <Image
                       src={product.image}
                       alt={product.alt}
-                      width={335}
+                      width={200}
                       height={200}
-                      className="rounded-lg transition duration-200 transform hover:scale-105 hover:shadow-lg w-full h-auto"
+                      className="rounded-full transition duration-200 transform hover:scale-105 hover:shadow-lg w-48 h-48 object-cover"
                     />
-                    <div className="absolute inset-0 rounded-lg bg-gray-500 opacity-0 group-hover:opacity-20 transition duration-200 pointer-events-none" />
+                    <div className="absolute inset-0 rounded-full bg-gray-500 opacity-0 group-hover:opacity-20 transition duration-200 pointer-events-none" />
                   </div>
                   <div className="flex items-center justify-between">
                     <CardTitle>{product.name}</CardTitle>
-                    <div className="flex items-center gap-1">
-                      <span className="text-yellow-400 text-sm">★</span>
-                      <span className="text-sm font-medium">{product.rating}</span>
-                    </div>
+                    <Badge variant="secondary">{product.category}</Badge>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex flex-col gap-1 mb-4">
-                    <div className="flex items-center gap-2">
-                      <span className="text-gray-400 line-through text-sm">{product.originalPrice}</span>
-                      <span className="text-orange-600 font-bold text-xl">{product.ourPrice}</span>
+                  <div className="mb-4">
+                    <p className="text-gray-600 text-sm mb-3">{product.description}</p>
+                    <div className="flex flex-wrap gap-1">
+                      {product.features?.map((feature, index) => (
+                        <Badge key={index} variant="outline" className="text-xs">{feature}</Badge>
+                      ))}
                     </div>
-                    <Badge variant="secondary">{product.warranty}</Badge>
                   </div>
                   <Button className="w-full" onClick={() => setLeadProduct(product.name)}>
                     Know more
@@ -574,14 +570,6 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="text-center mt-8 sm:mt-12">
-            <Button size="lg" variant="outline" className="h-12 sm:h-14 text-sm sm:text-base bg-transparent" asChild>
-              <Link href="/products">
-                View All Products
-                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-              </Link>
-            </Button>
-          </div>
 
           {leadProduct && (
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -872,7 +860,7 @@ export default function HomePage() {
             <div className="text-center">
               <div className="w-48 h-48 mx-auto mb-6">
                 <Image
-                  src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753183873/Untitled_design_2_zko8rw.png"
+                  src={resimage}
                   alt="Solar Installation"
                   width={192}
                   height={192}
