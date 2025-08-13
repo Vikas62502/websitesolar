@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react"
 import { ArrowRight, Calculator, TrendingUp, Leaf, Sun, Shield, Users, Award, CheckCircle, FileText, Workflow, HelpCircle, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
+import type { StaticImageData } from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -11,9 +12,63 @@ import { Footer } from "@/components/footer"
 import { HomeLeadSection } from "@/components/home-lead-section"
 import { LeadModal } from "@/components/lead-modal"
 import { FAQSection } from "@/components/faq-section"
-import Inverter from "@/Assets/images/Inverter.png";
-import Panel from "@/Assets/images/Panel.png";
-import resimage from "@/Assets/images/resimage.png";
+import Inverter from "@/Assets/Home/solar-inverter.webp";
+import Panel from "@/Assets/Home/solar-panel.webp";
+import Meter from "@/Assets/Home/solar-meter.webp";
+import Waaree from "@/Assets/Home/Logos/logo-waaree.png";
+import Adani from "@/Assets/Home/Logos/logo-adani.png";
+import Tata from "@/Assets/Home/Logos/logo-tata-solar.png";
+import Xwatt from "@/Assets/Home/Logos/logo-xwatt.png";
+import Secure from "@/Assets/Home/Logos/logo-secure.png";
+import Vsole from "@/Assets/Home/Logos/logo-vsole.png";
+import L_T from "@/Assets/Home/Logos/logo-l&t.png";
+import INA from "@/Assets/Home/Logos/logo-ina.png";
+import HPL from "@/Assets/Home/Logos/logo-hpl.png";
+import KSolare from "@/Assets/Home/Logos/logo-ksolare.png";
+import Luminous from "@/Assets/Home/Logos/logo-luminous.png";
+import Genus from "@/Assets/Home/Logos/logo-genus.png";
+import Residential from "@/Assets/Home/residential-solar.webp"
+import Commercial from "@/Assets/Home/commercial-solar.webp";
+import Bailout from "@/Assets/Home/bailout.png";
+// import resimage from "@/Assets/Home/resimage.png";
+
+// Brand Image Component with Loading State
+const BrandImage = ({ src, alt, width, height, className }: { 
+  src: any, 
+  alt: string, 
+  width: number, 
+  height: number, 
+  className?: string 
+}) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+  return (
+    <div className="relative">
+      {isLoading && (
+        <div 
+          className={`bg-gray-200 animate-pulse rounded ${className}`}
+          style={{ width: `${width}px`, height: `${height}px` }}
+        />
+      )}
+      <Image
+        src={hasError ? "/placeholder.svg" : src}
+        alt={alt}
+        width={width}
+        height={height}
+        loading="lazy"
+        decoding="async"
+        className={`${className} ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+        onLoad={() => setIsLoading(false)}
+        onError={(e) => {
+          console.log("Brand image failed to load:", src);
+          setHasError(true);
+          setIsLoading(false);
+        }}
+      />
+    </div>
+  );
+};
 
 export default function HomePage() {
   const [leadProduct, setLeadProduct] = useState<string | null>(null)
@@ -32,30 +87,47 @@ export default function HomePage() {
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
 
-  const products = [
+  interface Product {
+    name: string
+    image: StaticImageData | string
+    alt: string
+    description: string
+    features: string[]
+  }
+
+  const products: Product[] = [
     {
       name: "Solar Panels",
-      category: "Panels",
       image: Panel,
       alt: "Solar Panels Category",
-      description: "High-efficiency solar panels from top brands like Tata, Waaree, and Adani. 25-year warranty with mono PERC and bifacial technology options.",
-      features: ["25 Year Warranty", "High Efficiency", "Multiple Brands", "Government Approved"]
+      description: "High-efficiency mono and polycrystalline panels for homes and businesses.",
+      features: [
+        "Mono/Poly options",
+        "25-year performance warranty",
+        "High module efficiency"
+      ]
     },
     {
       name: "Solar Inverters", 
-      category: "Inverters",
       image: Inverter,
       alt: "Solar Inverters Category",
-      description: "Grid-tied and hybrid inverters from Luminous, Genus, and Secure. Smart monitoring and battery backup support available.",
-      features: ["5 Year Warranty", "Smart Monitoring", "Grid-Tied & Hybrid", "Battery Ready"]
+      description: "Reliable string and hybrid inverters with smart monitoring.",
+      features: [
+        "MPPT technology",
+        "Hybrid-ready options",
+        "Smart app monitoring"
+      ]
     },
     {
       name: "Net Meters",
-      category: "Meters",
-      image: "/placeholder.svg?height=200&width=335",
+      image: Meter,
       alt: "Net Meters Category", 
-      description: "Bi-directional net meters for residential and commercial installations. Smart meters with real-time monitoring display.",
-      features: ["3 Year Warranty", "Bi-directional", "Single & Three Phase", "Smart Display"]
+      description: "DISCOM-approved net meters for accurate import/export tracking.",
+      features: [
+        "DISCOM compliant",
+        "Accurate bi-directional metering",
+        "Easy integration"
+      ]
     }
   ]
 
@@ -102,51 +174,51 @@ export default function HomePage() {
   const brands = [
     {
       name: "Waaree",
-      logo: "https://res.cloudinary.com/du0cxgoic/image/upload/v1754306304/logo-waaree_t2mw1a.png",
+      logo: Waaree,
     },
     {
       name: "Adani Solar",
-      logo: "https://res.cloudinary.com/du0cxgoic/image/upload/v1754306292/logo-adani_opyd3x.png",
+      logo: Adani,
     },
     {
       name: "Tata Power Solar",
-      logo: "https://res.cloudinary.com/du0cxgoic/image/upload/v1754306300/logo-tata_m1arpy.png",
+      logo: Tata,
     },
     {
       name: "Xwatt",
-      logo: "https://res.cloudinary.com/du0cxgoic/image/upload/v1754306299/logo-xwatt_z4bxke.png",
+      logo: Xwatt,
     },
     {
       name: "Secure",
-      logo: "https://res.cloudinary.com/du0cxgoic/image/upload/v1754306299/logo-secure_mprpjc.png",
+      logo: Secure,
     },
     {
       name: "Vsole",
-      logo: "https://res.cloudinary.com/du0cxgoic/image/upload/v1754306298/logo-vsole_eicfkx.png",
+      logo: Vsole,
     },
     {
       name: "L&T",
-      logo: "https://res.cloudinary.com/du0cxgoic/image/upload/v1754306296/logo-l_t_s9sye4.png",
+      logo: L_T,
     },
     {
       name: "INA",
-      logo: "https://res.cloudinary.com/du0cxgoic/image/upload/v1754306295/logo-ina_qoqx41.png",
+      logo: INA,
     },
     {
       name: "HPL",
-      logo: "https://res.cloudinary.com/du0cxgoic/image/upload/v1754306294/logo-hpl_jdzg0c.png",
+      logo: HPL,
     },
     {
       name: "KSolare",
-      logo: "https://res.cloudinary.com/du0cxgoic/image/upload/v1754306292/logo-ksolare_jpsmsi.png",
+      logo: KSolare,
     },
     {
       name: "Luminous",
-      logo: "https://res.cloudinary.com/du0cxgoic/image/upload/v1754306291/logo-luminous_xqjuij.png",
+      logo: Luminous,
     },
     {
       name: "Genus",
-      logo: "https://res.cloudinary.com/du0cxgoic/image/upload/v1754306288/logo-genus_l1dtmx.png",
+      logo: Genus,
     },
   ]
 
@@ -418,8 +490,8 @@ export default function HomePage() {
               />
               <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-white p-3 sm:p-4 rounded-lg shadow-lg">
                 <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="w-8 h-8 sm:w-12 sm:h-12 bg-green-100 rounded-full flex items-center justify-center">
-                    <TrendingUp className="h-4 w-4 sm:h-6 sm:w-6 text-green-600" />
+                  <div className="w-8 h-8 sm:w-12 sm:h-12 bg-orange-300 rounded-full flex items-center justify-center">
+                    <Image src={Bailout} alt="Government Subsidy" width={24} height={24} className="h-7 w-7 sm:h-10 sm:w-10" />
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900 text-sm sm:text-base"> Up to <span className="text-orange-600 font-bold">₹95,000</span></p>
@@ -448,28 +520,26 @@ export default function HomePage() {
               onTouchMove={onTouchMove}
               onTouchEnd={() => onTouchEnd('products')}
             >
-              <div className="bg-white rounded-lg shadow-lg p-6 mx-4 transition-all duration-700 ease-out transform hover:scale-105 hover:shadow-2xl">
+              <div className="bg-white rounded-lg shadow-lg p-6 mx-4 transition-all duration-500 ease-out transform hover:scale-105 hover:shadow-2xl border-2 border-transparent hover:border-orange-200">
                 <div className="relative">
                   {/* Product Image */}
-                  <div className="relative group mb-4 flex justify-center">
+                  <div className="relative group mb-4 flex justify-center items-center w-64 h-64 rounded-full overflow-hidden">
                     <Image
                       src={products[currentProductIndex]?.image || "/placeholder.svg"}
                       alt={products[currentProductIndex]?.alt || "Solar Product"}
-                      width={200}
-                      height={200}
-                      className="rounded-full transition duration-200 transform hover:scale-105 hover:shadow-lg w-48 h-48 object-cover"
+                      width={400}
+                      height={400}
+                      className="transition duration-300 transform hover:scale-110 hover:shadow-xl w-full h-full object-cover"
                       onError={(e) => {
                         console.log("Image failed to load:", products[currentProductIndex]?.image);
                         e.currentTarget.src = "/placeholder.svg";
                       }}
                     />
-                    <div className="absolute inset-0 rounded-full bg-gray-500 opacity-0 group-hover:opacity-20 transition duration-200 pointer-events-none" />
                   </div>
                   
-                  {/* Product Title and Category */}
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-lg font-semibold text-gray-900 flex-1 mr-2">{products[currentProductIndex]?.name || "Product Name"}</h3>
-                    <Badge variant="secondary" className="flex-shrink-0">{products[currentProductIndex]?.category || "Category"}</Badge>
+                  {/* Product Title */}
+                  <div className="mb-3 text-center">
+                    <h3 className="text-lg font-semibold text-gray-900">{products[currentProductIndex]?.name || "Product Name"}</h3>
                   </div>
                   
                   {/* Description */}
@@ -477,7 +547,7 @@ export default function HomePage() {
                     <p className="text-gray-600 text-sm mb-3">{products[currentProductIndex]?.description || "Product description"}</p>
                     <div className="flex flex-wrap gap-1">
                       {products[currentProductIndex]?.features?.map((feature, index) => (
-                        <Badge key={index} variant="outline" className="text-xs">{feature}</Badge>
+                        <Badge key={index} variant="outline" className="text-xs transition-all duration-300 hover:bg-orange-100 hover:text-orange-800 hover:scale-105 hover:border-orange-300">{feature}</Badge>
                       ))}
                     </div>
                   </div>
@@ -536,37 +606,22 @@ export default function HomePage() {
           {/* Desktop View - Grid Layout */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {products.map((product) => (
-              <Card key={product.name} className="hover:shadow-lg transition-shadow">
+              <div key={product.name} className="transition-all duration-500 ease-out transform hover:scale-105 hover:bg-gradient-to-br hover:from-orange-50  border-transparent hover:border-orange-200">
                 <CardHeader>
-                  <div className="relative group mb-4 flex justify-center">
+                  <div className="relative group mb-4 flex justify-center items-center w-80 h-80 rounded-full overflow-hidden">
                     <Image
                       src={product.image}
                       alt={product.alt}
-                      width={200}
-                      height={200}
-                      className="rounded-full transition duration-200 transform hover:scale-105 hover:shadow-lg w-48 h-48 object-cover"
+                      width={400}
+                      height={400}
+                      className="transition duration-300 transform hover:scale-110 hover:shadow-xl w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 rounded-full bg-gray-500 opacity-0 group-hover:opacity-20 transition duration-200 pointer-events-none" />
                   </div>
-                  <div className="flex items-center justify-between">
-                    <CardTitle>{product.name}</CardTitle>
-                    <Badge variant="secondary">{product.category}</Badge>
+                  <div className="text-center">
+                    <CardTitle className="w-full">{product.name}</CardTitle>
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <div className="mb-4">
-                    <p className="text-gray-600 text-sm mb-3">{product.description}</p>
-                    <div className="flex flex-wrap gap-1">
-                      {product.features?.map((feature, index) => (
-                        <Badge key={index} variant="outline" className="text-xs">{feature}</Badge>
-                      ))}
-                    </div>
-                  </div>
-                  <Button className="w-full" onClick={() => setLeadProduct(product.name)}>
-                    Know more
-                  </Button>
-                </CardContent>
-              </Card>
+              </div>
             ))}
           </div>
 
@@ -649,10 +704,10 @@ export default function HomePage() {
             </div>
             <div>
               <Image
-                src="/placeholder.svg?height=500&width=1200"
+                src="/placeholder.svg?height=500&width=600"
                 alt="Chairbord Solar Expert Team"
-                width={1200}
-                height={700}
+                width={600}
+                height={500}
                 className="rounded-lg shadow-lg w-full h-64 sm:h-80 lg:h-96 xl:h-[500px] object-cover transition duration-200 transform hover:scale-105 hover:shadow-2xl"
               />
             </div>
@@ -856,26 +911,26 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Complete Solar Solutions for Homes and Businesses</h2>
             <p className="text-xl text-gray-600">As a leading solar power company in Jaipur, we deliver custom solar solutions designed to meet the unique energy needs of both residential and commercial spaces.</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-16">
-            <div className="text-center">
-              <div className="w-48 h-48 mx-auto mb-6">
-                <Image
-                  src={resimage}
-                  alt="Solar Installation"
-                  width={192}
-                  height={192}
-                  className="rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full h-full object-cover"
-                />
+                      <div className="grid md:grid-cols-2 gap-16">
+              <div className="text-center">
+                             <div className="w-64 h-48 mx-auto mb-6">
+                 <Image
+                   src={Residential}
+                   alt="Residential Solar"
+                   width={256}
+                   height={192}
+                   className="rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full h-full object-cover"
+                 />
               </div>
               <h3 className="text-xl font-semibold mb-4">Residential Solar Solutions</h3>
               <p className="text-gray-600">Power your home with clean, affordable energy. Our residential solar systems are designed for maximum savings, easy maintenance, and long-term performance — tailored for every rooftop.</p>
             </div>
             <div className="text-center">
-              <div className="w-48 h-48 mx-auto mb-6">
+              <div className="w-64 h-48 mx-auto mb-6">
                 <Image
-                  src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753183769/Untitled_design_1_ddk71t.png"
-                  alt="Solar Maintenance"
-                  width={192}
+                  src={Commercial}
+                  alt="Commercial Solar"
+                  width={250}
                   height={192}
                   className="rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full h-full object-cover"
                 />
@@ -904,7 +959,7 @@ export default function HomePage() {
           {/* Mobile View - Single Card */}
           <div className="md:hidden">
             <div className="relative overflow-hidden">
-              <div className="bg-white rounded-lg shadow-lg p-6 mx-4 transition-all duration-700 ease-out transform hover:scale-105 hover:shadow-2xl animate-slideIn">
+              <div className="bg-white rounded-lg shadow-lg p-6 mx-4 transition-all duration-700 ease-out transform hover:scale-105 hover:shadow-2xl">
                 <div className="relative">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="text-8xl font-bold text-gray-100 opacity-30">{processSteps[currentProcessIndex].number}</span>
@@ -1361,24 +1416,61 @@ export default function HomePage() {
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Authorized Partnerships</h2>
             <p className="text-lg text-gray-600">We're proudly partnered with 15+ trusted solar brands to ensure you get the most reliable and efficient solar solutions for every need.</p>
           </div>
-          {/* Infinite Horizontal Brand Carousel (Mobile & Desktop) */}
-          <div className="w-full overflow-x-hidden">
+          
+          {/* Mobile View - Reel Carousel */}
+          <div className="md:hidden">
+            <div className="relative overflow-hidden">
+              <div 
+                className="flex items-center gap-6 py-4 animate-scroll-x marquee-track w-max select-none"
+                style={{
+                  animation: "scroll-x 15s linear infinite",
+                  touchAction: 'pan-y'
+                }}
+                // onTouchStart={(e) => {
+                //   e.currentTarget.style.animationPlayState = 'paused';
+                // }}
+                // onTouchEnd={(e) => {
+                //   setTimeout(() => {
+                //     e.currentTarget.style.animationPlayState = 'running';
+                //   }, 2000);
+                // }}
+              >
+                {[...brands, ...brands].map((brand, idx) => (
+                  <div key={brand.name + idx} className="flex flex-col items-center min-w-[120px] flex-shrink-0">
+                    <div className="rounded-lg p-3">
+                      <BrandImage
+                        src={brand.logo}
+                        alt={brand.name}
+                        width={80}
+                        height={40}
+                        className="object-contain select-none pointer-events-none"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop View - Infinite Horizontal Carousel */}
+          <div className="hidden md:block w-full overflow-x-hidden">
             <div
-              className="flex items-center gap-8 py-4 animate-scroll-x w-full"
+              className="flex items-center gap-8 py-4 animate-scroll-x marquee-track w-max select-none"
               style={{
-                animation: "scroll-x 30s linear infinite"
+                animation: "scroll-x 20s linear infinite",
+                touchAction: 'pan-y'
               }}
               onMouseEnter={e => e.currentTarget.style.animationPlayState = 'paused'}
               onMouseLeave={e => e.currentTarget.style.animationPlayState = 'running'}
             >
               {[...brands, ...brands].map((brand, idx) => (
-                <div key={brand.name + idx} className="flex flex-col items-center min-w-[140px]">
-                  <Image
+                <div key={brand.name + idx} className="flex flex-col items-center min-w-[140px] flex-shrink-0">
+                  <BrandImage
                     src={brand.logo}
                     alt={brand.name}
                     width={120}
                     height={60}
-                    className="transition duration-200 transform hover:scale-110 hover:shadow-lg"
+                    className="object-contain select-none pointer-events-none"
                   />
                 </div>
               ))}

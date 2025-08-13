@@ -235,74 +235,14 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Job Openings */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Current Openings</h2>
-            <p className="text-xl text-gray-600">Find your perfect role</p>
-          </div>
-
-          <div className="space-y-6">
-            {jobOpenings.map((job) => (
-              <Card key={job.id} className="hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <h3 className="text-xl font-semibold text-gray-900">{job.title}</h3>
-                        <Badge variant="secondary">{job.type}</Badge>
-                        <Badge variant="outline">{job.department}</Badge>
-                      </div>
-
-                      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-3">
-                        <div className="flex items-center gap-1">
-                          <MapPin className="h-4 w-4" />
-                          {job.location}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Briefcase className="h-4 w-4" />
-                          {job.experience}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Clock className="h-4 w-4" />
-                          {job.posted}
-                        </div>
-                      </div>
-
-                      <p className="text-gray-600 mb-3">{job.description}</p>
-
-                      <div>
-                        <h4 className="font-medium text-gray-900 mb-2">Key Requirements:</h4>
-                        <ul className="text-sm text-gray-600 space-y-1">
-                          {job.requirements.map((req, index) => (
-                            <li key={index}>• {req}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col gap-2 lg:w-32">
-                      <Button className="w-full">Apply Now</Button>
-                      <Button variant="outline" className="w-full bg-transparent">
-                        Share
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Application Form */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Don't See Your Role?</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Join Our Solar Revolution Team</h2>
             <p className="text-xl text-gray-600">
-              Send us your resume and we'll keep you in mind for future opportunities
+              Passionate about renewable energy? Send us your resume and become part of our mission to power India with clean solar energy
             </p>
           </div>
 

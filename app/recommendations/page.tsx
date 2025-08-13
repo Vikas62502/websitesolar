@@ -18,37 +18,29 @@ const recommendations = [
     id: 1,
     title: "Budget-Friendly Solar Setup",
     subtitle: "Best value for money",
-    totalCost: 180000,
+    totalCost: 200000,
     monthlySavings: 2500,
     paybackPeriod: 6.2,
     capacity: "3kW",
     components: [
       {
         type: "Solar Panels",
-        product: "Waaree 335W Poly Panels",
-        quantity: 9,
-        price: 90000,
+        product: "Adani Panels",
         image: "/placeholder.svg?height=100&width=100",
       },
       {
         type: "Inverter",
-        product: "Microtek 3KW Solar Inverter",
-        quantity: 1,
-        price: 28000,
+        product: "VSole 3KW Solar Inverter",
         image: "/placeholder.svg?height=100&width=100",
       },
       {
-        type: "Battery",
-        product: "Exide 150Ah Solar Battery",
-        quantity: 2,
-        price: 25000,
+        type: "Meter",
+        product: "L & T Meter",
         image: "/placeholder.svg?height=100&width=100",
       },
       {
         type: "Installation",
         product: "Complete Installation & Setup",
-        quantity: 1,
-        price: 37000,
         image: "/placeholder.svg?height=100&width=100",
       },
     ],
@@ -59,37 +51,29 @@ const recommendations = [
     id: 2,
     title: "Premium Solar Solution",
     subtitle: "Maximum efficiency & features",
-    totalCost: 280000,
+    totalCost: 330000,
     monthlySavings: 3200,
     paybackPeriod: 7.3,
-    capacity: "5kW",
+    capacity: "6kW",
     components: [
       {
         type: "Solar Panels",
-        product: "Tata 540W Mono PERC Panels",
-        quantity: 10,
-        price: 185000,
+        product: "Tata Panels",
         image: "/placeholder.svg?height=100&width=100",
       },
       {
         type: "Inverter",
-        product: "Luminous 5KW MPPT Inverter",
-        quantity: 1,
-        price: 45000,
+        product: "Luminous 6KW Solar Inverter",
         image: "/placeholder.svg?height=100&width=100",
       },
       {
-        type: "Battery",
-        product: "Luminous 200Ah Lithium Battery",
-        quantity: 1,
-        price: 35000,
+        type: "Meter",
+        product: "L & T Meter",
         image: "/placeholder.svg?height=100&width=100",
       },
       {
         type: "Installation",
         product: "Premium Installation & Monitoring",
-        quantity: 1,
-        price: 15000,
         image: "/placeholder.svg?height=100&width=100",
       },
     ],
@@ -106,37 +90,29 @@ const recommendations = [
     id: 3,
     title: "Balanced Solar Package",
     subtitle: "Perfect balance of cost & performance",
-    totalCost: 230000,
+    totalCost: 270000,
     monthlySavings: 2800,
     paybackPeriod: 6.8,
-    capacity: "4kW",
+    capacity: "5kW",
     components: [
       {
         type: "Solar Panels",
-        product: "Adani 400W Mono Panels",
-        quantity: 10,
-        price: 152000,
+        product: "INA Panels",
         image: "/placeholder.svg?height=100&width=100",
       },
       {
         type: "Inverter",
-        product: "Luminous 4KW Hybrid Inverter",
-        quantity: 1,
-        price: 38000,
+        product: "VSole 5KW Solar Inverter",
         image: "/placeholder.svg?height=100&width=100",
       },
       {
-        type: "Battery",
-        product: "Exide 180Ah Tubular Battery",
-        quantity: 2,
-        price: 28000,
+        type: "Meter",
+        product: "L & T Meter",
         image: "/placeholder.svg?height=100&width=100",
       },
       {
         type: "Installation",
         product: "Standard Installation Package",
-        quantity: 1,
-        price: 12000,
         image: "/placeholder.svg?height=100&width=100",
       },
     ],
@@ -169,7 +145,7 @@ export default function RecommendationsPage() {
         {/* Recommendations */}
         <div className="space-y-8">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Recommended Solar Packages</h2>
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">Recommended Solar Packages</h1>
             <p className="text-gray-600">Choose the perfect solar solution for your home</p>
           </div>
 
@@ -190,7 +166,7 @@ export default function RecommendationsPage() {
                   <CardHeader className="pb-3 sm:pb-4">
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
-                        <CardTitle className="text-lg sm:text-xl">{rec.title}</CardTitle>
+                        <h1 className="text-lg sm:text-xl font-bold">{rec.title}</h1>
                         <p className="text-xs sm:text-sm text-gray-600 mt-1">{rec.subtitle}</p>
                       </div>
                       <RadioGroupItem value={rec.id.toString()} />
@@ -232,11 +208,7 @@ export default function RecommendationsPage() {
                             />
                             <div className="flex-1">
                               <div className="font-medium text-sm">{component.product}</div>
-                              <div className="text-xs text-gray-600">
-                                {component.type} × {component.quantity}
-                              </div>
                             </div>
-                            <div className="text-sm font-semibold">₹{component.price.toLocaleString()}</div>
                           </div>
                         ))}
                       </div>
