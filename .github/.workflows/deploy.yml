@@ -43,7 +43,7 @@ jobs:
             sudo docker stop cbpl_solar_main_web || true && sudo docker rm cbpl_solar_main_web || true
             sudo docker run -d \
              --name cbpl_solar_main_web \
-              -p 3000:3000 \
+              -p 5001:3000 \
               -e NEXT_PUBLIC_BASEURL=${{ secrets.NEXT_PUBLIC_BASEURL }} \
               -e NEXT_PUBLIC_SOCKET_URL=${{ secrets.NEXT_PUBLIC_SOCKET_URL }} \
                ${{ secrets.DOCKER_USERNAME }}/cbpl-solar-main-web:latest
