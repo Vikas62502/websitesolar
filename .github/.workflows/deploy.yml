@@ -2,7 +2,7 @@ name: CI/CD Pipeline of cbpl-solar-main-web
 
 on:
   push:
-    branches: [master, main]
+    branches: [main]
 
 jobs:
   build-and-deploy:
