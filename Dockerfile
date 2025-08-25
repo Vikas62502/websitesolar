@@ -3,24 +3,24 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-# Copy dependency files and install with Yarn
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+# Copy dependency files and install with legacy peer deps
+COPY package.json package-lock.json ./
+RUN npm install --legacy-peer-deps
 
 # Copy the rest of the source code
 COPY . .
 
 # Build the Next.js app
-RUN yarn build
+RUN npm run build
 
 # Stage 2: Serve the built app
 FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy dependency files and install only production deps
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile --production
+# Install only production dependencies with legacy peer deps
+COPY package.json package-lock.json ./
+RUN npm install --legacy-peer-deps --omit=dev
 
 # Copy built assets and config
 COPY --from=builder /app/.next ./.next
@@ -35,4 +35,4 @@ ENV NODE_ENV=production
 EXPOSE 3000
 
 # Start the Next.js server
-CMD ["yarn", "start"]
+CMD ["npm", "start"]
