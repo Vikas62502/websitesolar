@@ -27,7 +27,7 @@ RUN npm install --legacy-peer-deps --omit=dev
 # Copy built assets and config
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/next.config.mjs ./
 COPY --from=builder /app/node_modules ./node_modules
 
 # Optional: Set environment variable
