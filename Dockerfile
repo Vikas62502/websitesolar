@@ -3,8 +3,10 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-# Copy dependency files and install with legacy peer deps
-COPY package.json package-lock.json ./
+# Copy only package.json to avoid lockfile conflicts
+COPY package.json ./
+
+# Install dependencies with legacy peer resolution
 RUN npm install --legacy-peer-deps
 
 # Copy the rest of the source code
@@ -18,8 +20,8 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Install only production dependencies with legacy peer deps
-COPY package.json package-lock.json ./
+# Copy package.json again and install only production deps
+COPY package.json ./
 RUN npm install --legacy-peer-deps --omit=dev
 
 # Copy built assets and config
