@@ -30,9 +30,7 @@ import Genus from "@/Assets/Home/Logos/logo-genus.png";
 import Residential from "@/Assets/Home/residential-solar.webp"
 import Commercial from "@/Assets/Home/commercial-solar.webp";
 import Bailout from "@/Assets/Home/bailout.png";
-// import resimage from "@/Assets/Home/resimage.png";
 
-// Brand Image Component with Loading State
 const BrandImage = ({ src, alt, width, height, className }: { 
   src: any, 
   alt: string, 
@@ -83,11 +81,11 @@ export default function HomePage() {
   const [currentProductIndex, setCurrentProductIndex] = useState(0)
   const [isProductAutoPlaying, setIsProductAutoPlaying] = useState(true)
   
-  // Touch/swipe state for mobile carousels
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
 
   interface Product {
+    redirect: string
     name: string
     image: StaticImageData | string
     alt: string
@@ -105,7 +103,8 @@ export default function HomePage() {
         "Mono/Poly options",
         "25-year performance warranty",
         "High module efficiency"
-      ]
+      ],
+      redirect: "/products/solar-panels"
     },
     {
       name: "Solar Inverters", 
@@ -116,18 +115,20 @@ export default function HomePage() {
         "MPPT technology",
         "Hybrid-ready options",
         "Smart app monitoring"
-      ]
+      ],
+      redirect: "/products/solar-inverters"
     },
     {
-      name: "Net Meters",
+      name: "Solar Meters",
       image: Meter,
-      alt: "Net Meters Category", 
+      alt: "Solar Meters Category", 
       description: "DISCOM-approved net meters for accurate import/export tracking.",
       features: [
         "DISCOM compliant",
         "Accurate bi-directional metering",
         "Easy integration"
-      ]
+      ],
+      redirect: "/products/solar-meters"
     }
   ]
 
@@ -168,8 +169,6 @@ export default function HomePage() {
       number: "5"
     }
   ]
-
-
 
   const brands = [
     {
@@ -222,59 +221,46 @@ export default function HomePage() {
     },
   ]
 
-  // Auto-rotation effects for different carousels
   useEffect(() => {
     if (!isProcessAutoPlaying) return
-
     const interval = setInterval(() => {
       setCurrentProcessIndex((prev) => (prev + 1) % processSteps.length)
-    }, 3000) // Change every 3 seconds
-
+    }, 3000)
     return () => clearInterval(interval)
   }, [isProcessAutoPlaying, processSteps.length])
 
   useEffect(() => {
     if (!isWhyChooseAutoPlaying) return
-
     const interval = setInterval(() => {
       setCurrentWhyChooseIndex((prev) => (prev + 1) % 5)
-    }, 3000) // Change every 3 seconds
-
+    }, 3000)
     return () => clearInterval(interval)
   }, [isWhyChooseAutoPlaying])
 
   useEffect(() => {
     if (!isWhyChooseJaipurAutoPlaying) return
-
     const interval = setInterval(() => {
       setCurrentWhyChooseJaipurIndex((prev) => (prev + 1) % 4)
-    }, 3000) // Change every 3 seconds
-
+    }, 3000)
     return () => clearInterval(interval)
   }, [isWhyChooseJaipurAutoPlaying])
 
   useEffect(() => {
     if (!isBrandAutoPlaying) return
-
     const interval = setInterval(() => {
       setCurrentBrandIndex((prev) => (prev + 1) % brands.length)
-    }, 3000) // Change every 3 seconds
-
+    }, 3000)
     return () => clearInterval(interval)
   }, [isBrandAutoPlaying, brands.length])
 
-  // Auto-rotation effect for products carousel
   useEffect(() => {
     if (!isProductAutoPlaying) return
-
     const interval = setInterval(() => {
       setCurrentProductIndex((prev) => (prev + 1) % products.length)
-    }, 4000) // Change every 4 seconds
-
+    }, 4000)
     return () => clearInterval(interval)
   }, [isProductAutoPlaying, products.length])
 
-  // Touch/swipe handlers for mobile carousels
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null)
     setTouchStart(e.targetTouches[0].clientX)
@@ -286,13 +272,11 @@ export default function HomePage() {
 
   const onTouchEnd = (carouselType: 'whyChooseJaipur' | 'products' | 'process' | 'whyChoose' | 'testimonials' | 'brands') => {
     if (!touchStart || !touchEnd) return
-    
     const distance = touchStart - touchEnd
     const isLeftSwipe = distance > 50
     const isRightSwipe = distance < -50
 
     if (isLeftSwipe) {
-      // Swipe left - next item
       switch (carouselType) {
         case 'whyChooseJaipur':
           setCurrentWhyChooseJaipurIndex((prev) => (prev === 3 ? 0 : prev + 1))
@@ -328,7 +312,6 @@ export default function HomePage() {
     }
     
     if (isRightSwipe) {
-      // Swipe right - previous item
       switch (carouselType) {
         case 'whyChooseJaipur':
           setCurrentWhyChooseJaipurIndex((prev) => (prev === 0 ? 3 : prev - 1))
@@ -396,7 +379,7 @@ export default function HomePage() {
     {
       name: "Vikram Malhotra",
       location: "Delhi, NCR",
-      quote: "Chairbord offers the best value for rooftop solar systems in Jaipur. Their team was quick, professional, and explained every step clearly. Very satisfied with the results.",
+      quote: "Chairbord offers the best possible value for rooftop solar systems in Jaipur. Their team was quick, professional, and explained every step clearly. Very satisfied with the results.",
       image: "/placeholder.svg?height=100&width=100",
       rating: 5
     },
@@ -410,7 +393,7 @@ export default function HomePage() {
     {
       name: "Rajesh Kumar",
       location: "Chennai, Tamil Nadu",
-      quote: "Chairbord Solar delivered what they promised. Installation was done on time, and their post-installation support was excellent. A great experience from start to finish.",
+      quote: "Chairbord Solar truly delivered what they promised. Installation was done on time, and their post-installation support was excellent. A great experience from start to finish.",
       image: "/placeholder.svg?height=100&width=100",
       rating: 5
     },
@@ -428,36 +411,31 @@ export default function HomePage() {
       image: "/placeholder.svg?height=100&width=100",
       rating: 5
     },
-  {
-    name: "Meera Sharma",
-    location: "Bangalore, Karnataka",
-    quote: "The Chairbord team is professional, punctual, and honest. It's been a year with zero complaints. Their service quality stands out in the solar market.",
-    image: "/placeholder.svg?height=100&width=100",
-    rating: 5
-  }
+    {
+      name: "Meera Sharma",
+      location: "Bangalore, Karnataka",
+      quote: "The Chairbord team is professional, punctual, and honest always. It's been an entire year with zero complaints. Their unmatched service quality consistently stands out in the solar market.",
+      image: "/placeholder.svg?height=100&width=100",
+      rating: 5
+    }
   ]
 
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0)
   const [isTestimonialAutoPlaying, setIsTestimonialAutoPlaying] = useState(true)
 
-  // Function to restart auto-play after user interaction
   const restartAutoPlay = (setAutoPlayFunction: (value: boolean) => void) => {
     setTimeout(() => {
       setAutoPlayFunction(true)
-    }, 5000) // Restart auto-play after 5 seconds of inactivity
+    }, 5000)
   }
 
-  // Auto-rotation effect for testimonials
   useEffect(() => {
     if (!isTestimonialAutoPlaying) return
-
     const interval = setInterval(() => {
       setCurrentTestimonialIndex((prev) => (prev + 1) % testimonials.length)
-    }, 4000) // Change every 4 seconds
-
+    }, 4000)
     return () => clearInterval(interval)
   }, [isTestimonialAutoPlaying, testimonials.length])
-    
 
   return (
     <div className="min-h-screen">
@@ -520,58 +498,38 @@ export default function HomePage() {
               onTouchMove={onTouchMove}
               onTouchEnd={() => onTouchEnd('products')}
             >
-              <div className="bg-white rounded-lg shadow-lg p-6 mx-4 transition-all duration-500 ease-out transform hover:scale-105 hover:shadow-2xl border-2 border-transparent hover:border-orange-200">
-                <div className="relative">
-                  {/* Product Image */}
-                  <div className="relative group mb-4 flex justify-center items-center w-64 h-64 rounded-full overflow-hidden">
-                    <Image
-                      src={products[currentProductIndex]?.image || "/placeholder.svg"}
-                      alt={products[currentProductIndex]?.alt || "Solar Product"}
-                      width={400}
-                      height={400}
-                      className="transition duration-300 transform hover:scale-110 hover:shadow-xl w-full h-full object-cover"
-                      onError={(e) => {
-                        console.log("Image failed to load:", products[currentProductIndex]?.image);
-                        e.currentTarget.src = "/placeholder.svg";
-                      }}
-                    />
-                  </div>
-                  
-                  {/* Product Title */}
-                  <div className="mb-3 text-center">
-                    <h3 className="text-lg font-semibold text-gray-900">{products[currentProductIndex]?.name || "Product Name"}</h3>
-                  </div>
-                  
-                  {/* Description */}
-                  <div className="mb-4">
-                    <p className="text-gray-600 text-sm mb-3">{products[currentProductIndex]?.description || "Product description"}</p>
-                    <div className="flex flex-wrap gap-1">
-                      {products[currentProductIndex]?.features?.map((feature, index) => (
-                        <Badge key={index} variant="outline" className="text-xs transition-all duration-300 hover:bg-orange-100 hover:text-orange-800 hover:scale-105 hover:border-orange-300">{feature}</Badge>
-                      ))}
+              <Link href={products[currentProductIndex]?.redirect || "#"} className="block">
+                <div className="bg-white rounded-lg shadow-lg p-6 mx-4 transition-all duration-500 ease-out transform hover:scale-105 hover:shadow-2xl border-2 border-transparent hover:border-orange-200">
+                  <div className="relative">
+                    {/* Product Image */}
+                    <div className="relative group mb-4 flex justify-center items-center w-64 h-64 rounded-full overflow-hidden">
+                      <Image
+                        src={products[currentProductIndex]?.image || "/placeholder.svg"}
+                        alt={products[currentProductIndex]?.alt || "Solar Product"}
+                        width={400}
+                        height={400}
+                        className="transition duration-300 transform hover:scale-110 hover:shadow-xl w-full h-full object-cover"
+                        onError={(e) => {
+                          console.log("Image failed to load:", products[currentProductIndex]?.image);
+                          e.currentTarget.src = "/placeholder.svg";
+                        }}
+                      />
                     </div>
-                  </div>
-                  
-                  {/* Know More Button */}
-                  <div className="mt-4">
-                    <Button 
-                      className="w-full bg-orange-600 hover:bg-orange-700 text-white h-12 text-base font-medium" 
-                      onClick={() => {
-                        console.log("Button clicked for product:", products[currentProductIndex]?.name);
-                        setLeadProduct(products[currentProductIndex]?.name || "Product");
-                      }}
-                    >
-                      Know more
-                    </Button>
+                    
+                    {/* Product Title */}
+                    <div className="mb-3 text-center">
+                      <h3 className="text-lg font-semibold text-gray-900">{products[currentProductIndex]?.name || "Product Name"}</h3>
+                    </div>
+                    
                   </div>
                 </div>
-              </div>
+              </Link>
               
               {/* Navigation Arrows - Hidden on mobile */}
               <button
                 onClick={() => {
                   setCurrentProductIndex((prev) => (prev === 0 ? products.length - 1 : prev - 1))
-                  setIsProductAutoPlaying(false) // Pause auto-play when manually navigating
+                  setIsProductAutoPlaying(false)
                 }}
                 className="hidden md:flex absolute left-2 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-transparent border-none rounded-full items-center justify-center text-[#ec5a04] hover:text-white transition-all duration-300 z-10"
               >
@@ -580,7 +538,7 @@ export default function HomePage() {
               <button
                 onClick={() => {
                   setCurrentProductIndex((prev) => (prev === products.length - 1 ? 0 : prev + 1))
-                  setIsProductAutoPlaying(false) // Pause auto-play when manually navigating
+                  setIsProductAutoPlaying(false)
                 }}
                 className="hidden md:flex absolute right-2 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-transparent border-none rounded-full items-center justify-center text-[#ec5a04] hover:text-white transition-all duration-300 z-10"
               >
@@ -606,25 +564,27 @@ export default function HomePage() {
           {/* Desktop View - Grid Layout */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {products.map((product) => (
-              <div key={product.name} className="transition-all duration-500 ease-out transform hover:scale-105 hover:bg-gradient-to-br hover:from-orange-50  border-transparent hover:border-orange-200">
-                <CardHeader>
-                  <div className="relative group mb-4 flex justify-center items-center w-80 h-80 rounded-full overflow-hidden">
-                    <Image
-                      src={product.image}
-                      alt={product.alt}
-                      width={400}
-                      height={400}
-                      className="transition duration-300 transform hover:scale-110 hover:shadow-xl w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="text-center">
-                    <CardTitle className="w-full">{product.name}</CardTitle>
-                  </div>
-                </CardHeader>
-              </div>
+              <Link key={product.name} href={product.redirect} className="block">
+                <div className="transition-all duration-500 ease-out transform hover:scale-105 hover:bg-gradient-to-br hover:from-orange-50 hover:border-orange-200">
+                  <CardHeader>
+                    <div className="relative group mb-4 flex justify-center items-center w-80 h-80 rounded-full overflow-hidden">
+                      <Image
+                        src={product.image}
+                        alt={product.alt}
+                        width={400}
+                        height={400}
+                        className="transition duration-300 transform hover:scale-110 hover:shadow-xl w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <CardTitle className="w-full">{product.name}</CardTitle>
+                    </div>
+                  </CardHeader>
+                 
+                </div>
+              </Link>
             ))}
           </div>
-
 
           {leadProduct && (
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -714,29 +674,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Contact CTA Section */}
-      {/* <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-            Need Help Choosing the Right Solar System?
-          </h2>
-          <p className="text-lg text-gray-600 mb-8">
-            Our solar experts are here to guide you through every step of your solar journey
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-orange-600 hover:bg-orange-700" asChild>
-              <Link href="/contact">Contact Our Experts</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="bg-transparent" asChild>
-              <Link href="/calculator">
-                <Calculator className="mr-2 h-5 w-5" />
-                Try Solar Calculator
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section> */}
 
       {/* Why Choose Solar in Jaipur */}
       <section className="py-20 bg-gray-50">
@@ -944,8 +881,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-   
 
            {/* Our Process Section */}
            <section className="py-20 bg-gray-50">
@@ -1409,75 +1344,67 @@ export default function HomePage() {
         </div>
       </section>
 
-       {/* Brands We Carry */}
-       <section className="py-12 bg-gray-50 overflow-x-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Authorized Partnerships</h2>
-            <p className="text-lg text-gray-600">We're proudly partnered with 15+ trusted solar brands to ensure you get the most reliable and efficient solar solutions for every need.</p>
-          </div>
-          
-          {/* Mobile View - Reel Carousel */}
-          <div className="md:hidden">
-            <div className="relative overflow-hidden">
-              <div 
-                className="flex items-center gap-6 py-4 animate-scroll-x marquee-track w-max select-none"
-                style={{
-                  animation: "scroll-x 15s linear infinite",
-                  touchAction: 'pan-y'
-                }}
-                // onTouchStart={(e) => {
-                //   e.currentTarget.style.animationPlayState = 'paused';
-                // }}
-                // onTouchEnd={(e) => {
-                //   setTimeout(() => {
-                //     e.currentTarget.style.animationPlayState = 'running';
-                //   }, 2000);
-                // }}
-              >
-                {[...brands, ...brands].map((brand, idx) => (
-                  <div key={brand.name + idx} className="flex flex-col items-center min-w-[120px] flex-shrink-0">
-                    <div className="rounded-lg p-3">
-                      <BrandImage
-                        src={brand.logo}
-                        alt={brand.name}
-                        width={80}
-                        height={40}
-                        className="object-contain select-none pointer-events-none"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+      {/* Brands We Carry */}
+<section className="py-12 bg-gray-50 overflow-x-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-8">
+      <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+        Authorized Partnerships
+      </h2>
+      <p className="text-lg text-gray-600">
+        We're proudly partnered with 15+ trusted solar brands to ensure you get
+        the most reliable and efficient solar solutions for every need.
+      </p>
+    </div>
 
-          {/* Desktop View - Infinite Horizontal Carousel */}
-          <div className="hidden md:block w-full overflow-x-hidden">
-            <div
-              className="flex items-center gap-8 py-4 animate-scroll-x marquee-track w-max select-none"
-              style={{
-                animation: "scroll-x 20s linear infinite",
-                touchAction: 'pan-y'
-              }}
-              onMouseEnter={e => e.currentTarget.style.animationPlayState = 'paused'}
-              onMouseLeave={e => e.currentTarget.style.animationPlayState = 'running'}
-            >
-              {[...brands, ...brands].map((brand, idx) => (
-                <div key={brand.name + idx} className="flex flex-col items-center min-w-[140px] flex-shrink-0">
-                  <BrandImage
-                    src={brand.logo}
-                    alt={brand.name}
-                    width={120}
-                    height={60}
-                    className="object-contain select-none pointer-events-none"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+    {["mobile", "desktop"].map(view => (
+      <div
+        key={view}
+        className={`${view === "mobile" ? "md:hidden" : "hidden md:block"} w-full overflow-x-hidden`}
+      >
+        <div
+          className="relative flex w-max select-none"
+          style={{
+            animation: `${view === "mobile" ? "marquee 15s" : "marquee 25s"} linear infinite`,
+            willChange: "transform",
+          }}
+          onMouseEnter={e => (e.currentTarget.style.animationPlayState = "paused")}
+          onMouseLeave={e => (e.currentTarget.style.animationPlayState = "running")}
+        >
+          {[...brands, ...brands].map((brand, idx) => (
+  <div
+    key={brand.name + (idx < brands.length ? "-first" : "-second")}
+    className={`${view === "mobile" ? "min-w-[120px]" : "min-w-[140px]"} flex flex-col items-center flex-shrink-0`}
+  >
+    <div className="rounded-lg p-3">
+      <BrandImage
+        src={brand.logo}
+        alt={brand.name}
+        width={view === "mobile" ? 80 : 120}
+        height={view === "mobile" ? 40 : 60}
+        className="object-contain select-none pointer-events-none"
+      />
+    </div>
+  </div>
+))}
+
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+
+  <style jsx>{`
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  `}</style>
+</section>
+
 
       {/* FAQ Section */}
 <FAQSection

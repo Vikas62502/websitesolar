@@ -15,16 +15,16 @@ export function SocialBar() {
           sm:flex
         "
       >
-        <a href="https://facebook.com/solardealsindia" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:scale-110 transition-all duration-300 group">
+        <a href="https://www.facebook.com/chairbordsolar/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:scale-110 transition-all duration-300 group">
           <Facebook className="h-6 w-6 text-gray-600 group-hover:text-[#4b69b1] transition-colors" />
         </a>
-        <a href="https://twitter.com/solardealsindia" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:scale-110 transition-all duration-300 group">
+        <a href="https://www.youtube.com/@chairbordsolar" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:scale-110 transition-all duration-300 group">
           <Youtube className="h-6 w-6 text-gray-600 group-hover:text-[#a10202] transition-colors" />
         </a>
-        <a href="https://linkedin.com/company/solardealsindia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:scale-110 transition-all duration-300 group">
+        <a href="https://www.linkedin.com/company/chairbord-solar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:scale-110 transition-all duration-300 group">
           <Linkedin className="h-6 w-6 text-gray-600 group-hover:text-[#0477b5] transition-colors" />
         </a>
-        <a href="https://instagram.com/solardealsindia" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:scale-110 transition-all duration-300 group">
+        <a href="https://www.instagram.com/chairbordsolar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:scale-110 transition-all duration-300 group">
           <Instagram className="h-6 w-6 text-gray-600 group-hover:text-[#c9345a] transition-colors" />
         </a>
       </div>
@@ -33,7 +33,7 @@ export function SocialBar() {
       <div className="hidden md:flex fixed bottom-4 right-4 z-50 flex-col gap-3">
         {/* WhatsApp Button */}
         <a 
-          href="https://wa.me/919876543210?text=Hi! I'm interested in solar solutions from Chairbord Solar. Can you help me get a quote?" 
+          href="https://wa.me/919785230023?text=Hi! I'm interested in solar solutions from Chairbord Solar. Can you help me get a quote?" 
           target="_blank" 
           rel="noopener noreferrer" 
           aria-label="WhatsApp"
@@ -48,7 +48,7 @@ export function SocialBar() {
         
         {/* Call Button */}
         <a 
-          href="tel:+919876543210" 
+          href="tel:+919785230023" 
           aria-label="Call us"
           className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg hover:scale-110 transition-all duration-300 flex items-center justify-center"
         >
@@ -68,15 +68,15 @@ export function SocialBar() {
           sm:hidden
         "
       >
-        <a href="https://facebook.com/solardealsindia" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <a href="https://facebook.com/chairbordsolar" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
           <Facebook className="h-6 w-6 text-gray-600 hover:text-orange-600 transition-colors" />
         </a>
-        <a href="https://twitter.com/solardealsindia" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <a href="https://www.youtube.com/@chairbordsolar" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <Youtube className="h-6 w-6 text-gray-600 hover:text-red-600 transition-colors" />
         </a>
          {/* WhatsApp Button */}
          <a 
-          href="https://wa.me/919876543210?text=Hi! I'm interested in solar solutions from Chairbord Solar. Can you help me get a quote?" 
+          href="https://wa.me/919785230023?text=Hi! I'm interested in solar solutions from Chairbord Solar. Can you help me get a quote?" 
           target="_blank" 
           rel="noopener noreferrer" 
           aria-label="WhatsApp"
@@ -90,13 +90,13 @@ export function SocialBar() {
         </a>
         
         {/* Call Button */}
-        <a href="tel:+919876543210" target="_blank" rel="noopener noreferrer" aria-label="Call us">
+        <a href="tel:+919785230023" target="_blank" rel="noopener noreferrer" aria-label="Call us">
           <Phone className="h-6 w-6 text-gray-600 hover:text-blue-600 transition-colors" />
         </a>
-        <a href="https://linkedin.com/company/solardealsindia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/company/chairbord-solar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <Linkedin className="h-6 w-6 text-gray-600 hover:text-orange-600 transition-colors" />
         </a>
-        <a href="https://instagram.com/solardealsindia" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <a href="https://www.instagram.com/chairbordsolar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <Instagram className="h-6 w-6 text-gray-600 hover:text-orange-600 transition-colors" />
         </a>
       </div>

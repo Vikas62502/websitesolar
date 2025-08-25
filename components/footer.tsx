@@ -1,4 +1,4 @@
-import { Zap, Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
+import { Zap, Facebook, Twitter, Linkedin, Instagram, Youtube } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -25,13 +25,18 @@ export function Footer() {
             <h3 className="font-semibold mb-4">Products</h3>
             <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
               <li>
-                <Link href="/products" className="hover:text-white transition-colors">
+                <Link href="/products/solar-panels" className="hover:text-white transition-colors">
                   Solar Panels
                 </Link>
               </li>
               <li>
-                <Link href="/products" className="hover:text-white transition-colors">
-                  Inverters
+                <Link href="/products/solar-inverters" className="hover:text-white transition-colors">
+                 Solar Inverters
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/solar-meters" className="hover:text-white transition-colors">
+                 Solar Meters
                 </Link>
               </li>
               {/* <li>
@@ -109,16 +114,16 @@ export function Footer() {
         </div>
         {/* Social Media Icons */}
         <div className="mt-8 flex justify-center gap-6">
-          <a href="https://facebook.com/solardealsindia" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <a href="https://facebook.com/chairbordsolar" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <Facebook className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
           </a>
-          <a href="https://twitter.com/solardealsindia" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-            <Twitter className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
+          <a href="https://www.youtube.com/@chairbordsolar" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <Youtube className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
           </a>
-          <a href="https://linkedin.com/company/solardealsindia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/company/chairbord-solar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <Linkedin className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
           </a>
-          <a href="https://instagram.com/solardealsindia" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a href="https://www.instagram.com/chairbordsolar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <Instagram className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
           </a>
         </div>

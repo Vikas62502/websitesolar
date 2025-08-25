@@ -14,6 +14,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { LeadModal } from "@/components/lead-modal"
 import { useLeadModal } from "@/hooks/use-lead-modal"
+import { useParams } from "next/navigation"
 
 const products = [
   {
@@ -25,7 +26,7 @@ const products = [
     rating: 4.5,
     reviews: 150,
     image: "https://m.media-amazon.com/images/I/51D02urJ4gL.jpg",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "2KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -40,7 +41,7 @@ const products = [
     rating: 4.6,
     reviews: 180,
     image: "https://m.media-amazon.com/images/I/51D02urJ4gL.jpg",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "3KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -55,7 +56,7 @@ const products = [
     rating: 4.6,
     reviews: 185,
     image: "https://m.media-amazon.com/images/I/51D02urJ4gL.jpg",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "3.4KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -70,7 +71,7 @@ const products = [
     rating: 4.6,
     reviews: 190,
     image: "https://m.media-amazon.com/images/I/51D02urJ4gL.jpg",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "3.6KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -85,7 +86,7 @@ const products = [
     rating: 4.7,
     reviews: 200,
     image: "https://m.media-amazon.com/images/I/51D02urJ4gL.jpg",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "4KW",
     warranty: "10 Years",
     technology: "MPPT",
@@ -100,7 +101,7 @@ const products = [
     rating: 4.7,
     reviews: 205,
     image: "https://m.media-amazon.com/images/I/51D02urJ4gL.jpg",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "4.2KW",
     warranty: "10 Years",
     technology: "MPPT",
@@ -115,7 +116,7 @@ const products = [
     rating: 4.8,
     reviews: 220,
     image: "https://m.media-amazon.com/images/I/51D02urJ4gL.jpg",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "5KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -130,7 +131,7 @@ const products = [
     rating: 4.8,
     reviews: 225,
     image: "https://m.media-amazon.com/images/I/51D02urJ4gL.jpg",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "5.4KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -145,7 +146,7 @@ const products = [
     rating: 4.8,
     reviews: 230,
     image: "https://m.media-amazon.com/images/I/51D02urJ4gL.jpg",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "6KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -160,7 +161,7 @@ const products = [
     rating: 4.7,
     reviews: 210,
     image: "https://m.media-amazon.com/images/I/51D02urJ4gL.jpg",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "4.2KW",
     warranty: "10 Years",
     technology: "MPPT",
@@ -175,7 +176,7 @@ const products = [
     rating: 4.8,
     reviews: 220,
     image: "https://m.media-amazon.com/images/I/51D02urJ4gL.jpg",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "5KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -190,7 +191,7 @@ const products = [
     rating: 4.8,
     reviews: 225,
     image: "https://m.media-amazon.com/images/I/51D02urJ4gL.jpg",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "5.4KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -205,7 +206,7 @@ const products = [
     rating: 4.8,
     reviews: 230,
     image: "https://m.media-amazon.com/images/I/51D02urJ4gL.jpg",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "6KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -220,7 +221,7 @@ const products = [
     rating: 4.7,
     reviews: 200,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "4KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -235,7 +236,7 @@ const products = [
     rating: 4.8,
     reviews: 220,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "5KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -250,7 +251,7 @@ const products = [
     rating: 4.8,
     reviews: 230,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "6KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -265,7 +266,7 @@ const products = [
     rating: 4.8,
     reviews: 235,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "7KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -280,7 +281,7 @@ const products = [
     rating: 4.8,
     reviews: 240,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "8KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -295,7 +296,7 @@ const products = [
     rating: 4.9,
     reviews: 250,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "10KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -310,7 +311,7 @@ const products = [
     rating: 4.7,
     reviews: 200,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "4KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -325,7 +326,7 @@ const products = [
     rating: 4.8,
     reviews: 220,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "5KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -340,7 +341,7 @@ const products = [
     rating: 4.8,
     reviews: 230,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "6KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -355,7 +356,7 @@ const products = [
     rating: 4.8,
     reviews: 235,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "7KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -370,7 +371,7 @@ const products = [
     rating: 4.8,
     reviews: 240,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "8KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -385,7 +386,7 @@ const products = [
     rating: 4.9,
     reviews: 250,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "10KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -400,7 +401,7 @@ const products = [
     rating: 4.9,
     reviews: 260,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "12KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -415,7 +416,7 @@ const products = [
     rating: 4.9,
     reviews: 270,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "15KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -430,7 +431,7 @@ const products = [
     rating: 4.9,
     reviews: 280,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "18KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -445,7 +446,7 @@ const products = [
     rating: 4.9,
     reviews: 290,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "20KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -460,7 +461,7 @@ const products = [
     rating: 4.9,
     reviews: 290,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "20KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -475,7 +476,7 @@ const products = [
     rating: 4.9,
     reviews: 300,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "25KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -490,7 +491,7 @@ const products = [
     rating: 4.9,
     reviews: 310,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "30KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -505,7 +506,7 @@ const products = [
     rating: 4.9,
     reviews: 310,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "30KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -520,7 +521,7 @@ const products = [
     rating: 4.9,
     reviews: 320,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "35KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -535,7 +536,7 @@ const products = [
     rating: 4.9,
     reviews: 330,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "40KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -550,7 +551,7 @@ const products = [
     rating: 4.9,
     reviews: 330,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "40KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -565,7 +566,7 @@ const products = [
     rating: 4.9,
     reviews: 340,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "50KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -580,7 +581,7 @@ const products = [
     rating: 4.9,
     reviews: 350,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "60KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -595,7 +596,7 @@ const products = [
     rating: 4.9,
     reviews: 350,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "60KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -610,7 +611,7 @@ const products = [
     rating: 4.9,
     reviews: 360,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "70KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -625,7 +626,7 @@ const products = [
     rating: 4.9,
     reviews: 370,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "80KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -640,7 +641,7 @@ const products = [
     rating: 4.9,
     reviews: 370,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "80KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -655,7 +656,7 @@ const products = [
     rating: 4.9,
     reviews: 380,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "100KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -670,7 +671,7 @@ const products = [
     rating: 4.9,
     reviews: 380,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "100KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -685,7 +686,7 @@ const products = [
     rating: 4.9,
     reviews: 390,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "110KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -700,7 +701,7 @@ const products = [
     rating: 4.9,
     reviews: 400,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "120KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -715,7 +716,7 @@ const products = [
     rating: 4.9,
     reviews: 410,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "125KW",
     warranty: "5 Years",
     technology: "MPPT",
@@ -730,19 +731,51 @@ const products = [
     rating: 4.9,
     reviews: 420,
     image: "https://www.vsolesolar.com/wp-content/uploads/2024/04/hybrid-12kw.png",
-    category: "Inverters",
+    category: "Solar-Inverters",
     capacity: "135KW",
     warranty: "5 Years",
     technology: "MPPT",
+    madeInIndia: true
+  },
+  {
+    id: 49,
+    name: "VSOLE Smart Energy Meter",
+    brand: "VSOLE",
+    price: 5000,
+    originalPrice: 5500,
+    rating: 4.5,
+    reviews: 100,
+    image: "https://example.com/meter.jpg",
+    category: "Solar-Meters",
+    type: "Smart Meter",
+    warranty: "3 Years",
+    madeInIndia: true
+  },
+  {
+    id: 50,
+    name: "VSOLE 500W Mono Solar Panel",
+    brand: "VSOLE",
+    price: 12000,
+    originalPrice: 13000,
+    rating: 4.7,
+    reviews: 150,
+    image: "https://example.com/panel.jpg",
+    category: "Solar-Panels",
+    wattage: "500W",
+    efficiency: "21%",
+    warranty: "25 Years",
     madeInIndia: true
   }
 ];
 
 export default function ProductsPage() {
+  const params = useParams()
+  const category = params.category as string
+  const normalizedCategory = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase()
+
   const [searchTerm, setSearchTerm] = useState("")
-  const [selectedCategory, setSelectedCategory] = useState("all")
   const [selectedBrands, setSelectedBrands] = useState<string[]>([])
-  const [priceRange, setPriceRange] = useState([0, 100000])
+  const [priceRange, setPriceRange] = useState([0, 400000])
   const [sortBy, setSortBy] = useState("popularity")
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
 
@@ -751,18 +784,32 @@ export default function ProductsPage() {
   const brands = [...new Set(products.map((p) => p.brand))]
   const categories = [...new Set(products.map((p) => p.category))]
 
+  // Validate category
+  const validCategories = categories.map(c => c.toLowerCase())
+  if (!validCategories.includes(category.toLowerCase())) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Navbar />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 text-center">
+          <h1 className="text-2xl font-bold">Category Not Found</h1>
+          <p className="text-gray-500 mt-2">The category "{category}" does not exist.</p>
+        </div>
+        <Footer />
+      </div>
+    )
+  }
+
   const filteredProducts = products.filter((product) => {
+    const matchesCategory = product.category.toLowerCase() === category.toLowerCase()
     const matchesSearch =
       product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       product.brand.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = selectedCategory === "all" || product.category === selectedCategory
     const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(product.brand)
     const matchesPrice = product.price >= priceRange[0] && product.price <= priceRange[1]
 
-    return matchesSearch && matchesCategory && matchesBrand && matchesPrice
+    return matchesCategory && matchesSearch && matchesBrand && matchesPrice
   })
 
-  // Sorting logic
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortBy === "price-low") {
       return a.price - b.price
@@ -771,7 +818,6 @@ export default function ProductsPage() {
     } else if (sortBy === "rating") {
       return b.rating - a.rating
     } else {
-      // Popularity: sort by reviews descending
       return b.reviews - a.reviews
     }
   })
@@ -780,18 +826,15 @@ export default function ProductsPage() {
     openModal({
       title: `Get Quote for ${productName}`,
       subtitle: "Fill in your details and we'll provide you with the best pricing and installation options",
-      source: "product_page",
+      source: `product_page_${category.toLowerCase()}`,
     })
   }
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
       <Navbar />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
-          {/* Filters Sidebar */}
           <div className="lg:w-64 space-y-4 sm:space-y-6">
             <Card>
               <CardHeader className="pb-3 sm:pb-4">
@@ -801,39 +844,18 @@ export default function ProductsPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4 sm:space-y-6">
-                {/* Search */}
                 <div>
-                  <label className="text-sm font-medium mb-2 block">Search Products</label>
+                  <label className="text-sm font-medium mb-2 block">Search {normalizedCategory}</label>
                   <div className="relative">
                     <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                     <Input
-                      placeholder="Search products..."
+                      placeholder={`Search ${normalizedCategory.toLowerCase()}...`}
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
                       className="pl-10"
                     />
                   </div>
                 </div>
-
-                {/* Category */}
-                <div>
-                  <label className="text-sm font-medium mb-2 block">Category</label>
-                  <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">All Categories</SelectItem>
-                      {categories.map((category) => (
-                        <SelectItem key={category} value={category}>
-                          {category}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                {/* Brands */}
                 <div>
                   <label className="text-sm font-medium mb-2 block">Brands</label>
                   <div className="space-y-2 max-h-40 overflow-y-auto">
@@ -857,8 +879,6 @@ export default function ProductsPage() {
                     ))}
                   </div>
                 </div>
-
-                {/* Price Range */}
                 <div>
                   <label className="text-sm font-medium mb-2 block">
                     Price Range: ₹{priceRange[0].toLocaleString()} - ₹{priceRange[1].toLocaleString()}
@@ -866,7 +886,7 @@ export default function ProductsPage() {
                   <Slider
                     value={priceRange}
                     onValueChange={setPriceRange}
-                    max={100000}
+                    max={400000}
                     min={0}
                     step={1000}
                     className="mt-2"
@@ -875,12 +895,10 @@ export default function ProductsPage() {
               </CardContent>
             </Card>
           </div>
-
-          {/* Products Grid */}
           <div className="flex-1">
-            {/* Toolbar */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-3 sm:gap-4">
               <div className="flex items-center gap-4">
+                <h1 className="text-xl sm:text-2xl font-bold">{normalizedCategory}</h1>
                 <span className="text-sm text-gray-600">{filteredProducts.length} products found</span>
               </div>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
@@ -915,8 +933,6 @@ export default function ProductsPage() {
                 </div>
               </div>
             </div>
-
-            {/* Products */}
             <div
               className={
                 viewMode === "grid" ? "grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6" : "space-y-4"
@@ -946,7 +962,6 @@ export default function ProductsPage() {
                         </a>
                         <p className="text-sm text-gray-600">{product.brand}</p>
                       </div>
-
                       <div className="flex items-center gap-2">
                         <div className="flex items-center">
                           <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
@@ -954,7 +969,6 @@ export default function ProductsPage() {
                         </div>
                         <span className="text-sm text-gray-500">({product.reviews} reviews)</span>
                       </div>
-
                       <div className="flex items-center gap-2">
                         <span className="text-2xl font-bold text-orange-600">₹{product.price.toLocaleString()}</span>
                         <span className="text-sm text-gray-500 line-through">
@@ -964,12 +978,11 @@ export default function ProductsPage() {
                           {Math.round((1 - product.price / product.originalPrice) * 100)}% OFF
                         </Badge>
                       </div>
-
                       <div className="text-sm text-gray-600">
                         {product.category === "Solar Panels" && (
                           <div>
                             <span>
-                              • {product.wattage}W • {product.efficiency} Efficiency
+                              • {product.wattage} • {product.efficiency} Efficiency
                             </span>
                           </div>
                         )}
@@ -980,9 +993,15 @@ export default function ProductsPage() {
                             </span>
                           </div>
                         )}
+                        {product.category === "Meters" && (
+                          <div>
+                            <span>
+                              • {product.type}
+                            </span>
+                          </div>
+                        )}
                         <div>• {product.warranty} Warranty</div>
                       </div>
-
                       <div className="flex flex-col sm:flex-row gap-2 pt-2">
                         <Button className="flex-1 h-9 sm:h-10 text-sm" onClick={() => handleGetQuote(product.name)}>
                           Get Quote
@@ -993,18 +1012,16 @@ export default function ProductsPage() {
                 </Card>
               ))}
             </div>
-
             {filteredProducts.length === 0 && (
               <div className="text-center py-12">
-                <p className="text-gray-500 text-lg">No products found matching your criteria.</p>
+                <p className="text-gray-500 text-lg">No {normalizedCategory.toLowerCase()} found matching your criteria.</p>
                 <Button
                   variant="outline"
                   className="mt-4 bg-transparent"
                   onClick={() => {
                     setSearchTerm("")
-                    setSelectedCategory("all")
                     setSelectedBrands([])
-                    setPriceRange([0, 100000])
+                    setPriceRange([0, 400000])
                   }}
                 >
                   Clear Filters
@@ -1014,7 +1031,6 @@ export default function ProductsPage() {
           </div>
         </div>
       </div>
-
       <LeadModal
         isOpen={isOpen}
         onClose={closeModal}
@@ -1022,10 +1038,7 @@ export default function ProductsPage() {
         subtitle={modalProps.subtitle}
         source={modalProps.source}
       />
-
       <Footer />
     </div>
   )
 }
-
-

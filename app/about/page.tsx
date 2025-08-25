@@ -96,12 +96,12 @@ export default function AboutPage() {
                 </TabsContent>
                 <TabsContent value="mission">
                   <p className="text-gray-600 text-lg text-justify overflow-y-auto pr-3" style={{ maxHeight: '14em' }}>
-                    At Chairbord Solar, our vision is to make solar energy the first choice for every home and business in Jaipur and beyond. We aim to create a cleaner, greener Rajasthan powered by affordable and accessible solar technology. By delivering high-quality systems and trusted service, we’re building a future where energy is sustainable, smart, and self-reliant. We envision a society where every rooftop contributes to a brighter tomorrow—both environmentally and economically. Our goal is not just to install panels, but to inspire change through clean energy.
+                  Our mission is to empower individuals and businesses with reliable solar panel solutions that reduce electricity costs and carbon footprint. We are committed to excellence in every project—offering government-approved systems, expert support, and zero-investment plans. Through innovation, transparency, and customer focus, we aim to simplify solar adoption across Jaipur and Rajasthan. From consultation to after-sales service, our mission is to deliver value, build trust, and drive India’s transition to renewable energy—one rooftop at a time.
                   </p>
                 </TabsContent>
                 <TabsContent value="vision">
                   <p className="text-gray-600 text-lg text-justify overflow-y-auto pr-3" style={{ maxHeight: '14em' }}>
-                    Our mission is to empower individuals and businesses with reliable solar panel solutions that reduce electricity costs and carbon footprint. We are committed to excellence in every project—offering government-approved systems, expert support, and zero-investment plans. Through innovation, transparency, and customer focus, we aim to simplify solar adoption across Jaipur and Rajasthan. From consultation to after-sales service, our mission is to deliver value, build trust, and drive India’s transition to renewable energy—one rooftop at a time.
+                  At Chairbord Solar, our vision is to make solar energy the first choice for every home and business in Jaipur and beyond. We aim to create a cleaner, greener Rajasthan powered by affordable and accessible solar technology. By delivering high-quality systems and trusted service, we’re building a future where energy is sustainable, smart, and self-reliant. We envision a society where every rooftop contributes to a brighter tomorrow—both environmentally and economically. Our goal is not just to install panels, but to inspire change through clean energy.
                   </p>
                 </TabsContent>
               </Tabs>
