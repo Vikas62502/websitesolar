@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base image
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 # Set the working directory
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 
 # Install dependencies
-RUN yarn install --frozen-lockfile
+RUN yarn install --frozen-lockfile --legacy-peer-deps
 
 # Copy the rest of the application files
 COPY . .
@@ -17,7 +17,7 @@ COPY . .
 RUN yarn build
 
 # Use a smaller image for production
-FROM node:18-alpine AS production
+FROM node:20-alpine AS production
 
 WORKDIR /app
 
