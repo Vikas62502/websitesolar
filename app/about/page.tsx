@@ -8,6 +8,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 
+// founder data
 const founders = [
   {
     name: "Kamlesh Natwadiya",
@@ -61,7 +62,7 @@ export default function AboutPage() {
               <span className="text-orange-600"> Us</span>
             </h1>
             <p className="text-gray-600 text-lg">
-            Chairbord Solar is shaping the future of green energy in Jaipur and across Rajasthan. As a trusted solar company in Jaipur, we offer affordable solar panel solutions for homes and businesses—helping lower electricity bills and support a cleaner, sustainable future.
+              Chairbord Solar is shaping the future of green energy in Jaipur and across Rajasthan. As a trusted solar company in Jaipur, we offer affordable solar panel solutions for homes and businesses—helping lower electricity bills and support a cleaner, sustainable future.
             </p>
           </div>
         </div>
@@ -96,12 +97,12 @@ export default function AboutPage() {
                 </TabsContent>
                 <TabsContent value="mission">
                   <p className="text-gray-600 text-lg text-justify overflow-y-auto pr-3" style={{ maxHeight: '14em' }}>
-                  Our mission is to empower individuals and businesses with reliable solar panel solutions that reduce electricity costs and carbon footprint. We are committed to excellence in every project—offering government-approved systems, expert support, and zero-investment plans. Through innovation, transparency, and customer focus, we aim to simplify solar adoption across Jaipur and Rajasthan. From consultation to after-sales service, our mission is to deliver value, build trust, and drive India’s transition to renewable energy—one rooftop at a time.
+                    Our mission is to empower individuals and businesses with reliable solar panel solutions that reduce electricity costs and carbon footprint. We are committed to excellence in every project—offering government-approved systems, expert support, and zero-investment plans. Through innovation, transparency, and customer focus, we aim to simplify solar adoption across Jaipur and Rajasthan. From consultation to after-sales service, our mission is to deliver value, build trust, and drive India’s transition to renewable energy—one rooftop at a time.
                   </p>
                 </TabsContent>
                 <TabsContent value="vision">
                   <p className="text-gray-600 text-lg text-justify overflow-y-auto pr-3" style={{ maxHeight: '14em' }}>
-                  At Chairbord Solar, our vision is to make solar energy the first choice for every home and business in Jaipur and beyond. We aim to create a cleaner, greener Rajasthan powered by affordable and accessible solar technology. By delivering high-quality systems and trusted service, we’re building a future where energy is sustainable, smart, and self-reliant. We envision a society where every rooftop contributes to a brighter tomorrow—both environmentally and economically. Our goal is not just to install panels, but to inspire change through clean energy.
+                    At Chairbord Solar, our vision is to make solar energy the first choice for every home and business in Jaipur and beyond. We aim to create a cleaner, greener Rajasthan powered by affordable and accessible solar technology. By delivering high-quality systems and trusted service, we’re building a future where energy is sustainable, smart, and self-reliant. We envision a society where every rooftop contributes to a brighter tomorrow—both environmentally and economically. Our goal is not just to install panels, but to inspire change through clean energy.
                   </p>
                 </TabsContent>
               </Tabs>
@@ -150,7 +151,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      
+
       {/* Company Journey */}
       {/* <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -206,7 +207,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="font-semibold mb-2">Customer First</h3>
                 <p className="text-sm text-gray-600">
-                We prioritize customer success and satisfaction in every solar solution we offer.
+                  We prioritize customer success and satisfaction in every solar solution we offer.
                 </p>
               </CardContent>
             </Card>
@@ -218,7 +219,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="font-semibold mb-2">Quality Excellence</h3>
                 <p className="text-sm text-gray-600">
-                We work with government-certified solar manufacturers and trusted installers.
+                  We work with government-certified solar manufacturers and trusted installers.
                 </p>
               </CardContent>
             </Card>
@@ -230,7 +231,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="font-semibold mb-2">Transparency</h3>
                 <p className="text-sm text-gray-600">
-                Honest pricing, solar savings insights, and transparent processes at every step.
+                  Honest pricing, solar savings insights, and transparent processes at every step.
                 </p>
               </CardContent>
             </Card>
@@ -242,7 +243,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="font-semibold mb-2">Innovation</h3>
                 <p className="text-sm text-gray-600">
-                Innovating solar services through advanced technology and smarter energy solutions.
+                  Innovating solar services through advanced technology and smarter energy solutions.
                 </p>
               </CardContent>
             </Card>
@@ -315,7 +316,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-white mb-4">Be a Part of the Solar Revolution</h2>
           <p className="text-xl text-blue-100 mb-8">
-          Join us in shaping a cleaner, brighter future powered by the sun. Whether you're a homeowner, business, or partner, Chairbord Solar welcomes you to be part of our growing solar movement across Rajasthan and beyond.
+            Join us in shaping a cleaner, brighter future powered by the sun. Whether you're a homeowner, business, or partner, Chairbord Solar welcomes you to be part of our growing solar movement across Rajasthan and beyond.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100" asChild>
