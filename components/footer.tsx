@@ -1,7 +1,7 @@
 import { Zap, Facebook, Twitter, Linkedin, Instagram, Youtube } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-
+//run
 export function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-8 sm:py-12">
