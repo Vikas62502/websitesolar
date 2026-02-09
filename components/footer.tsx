@@ -112,23 +112,46 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        {/* Social Media Icons */}
-        <div className="mt-8 flex justify-center gap-6">
-          <a href="https://facebook.com/chairbordsolar" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <Facebook className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
-          </a>
-          <a href="https://www.youtube.com/@chairbordsolar" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <Youtube className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
-          </a>
-          <a href="https://www.linkedin.com/company/chairbord-solar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <Linkedin className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
-          </a>
-          <a href="https://www.instagram.com/chairbordsolar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <Instagram className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
-          </a>
-        </div>
-        <div className="border-t border-gray-800 mt-8 pt-6 sm:pt-8 text-center text-gray-400 text-sm sm:text-base">
-          <p>&copy; 2024 Chairbord Solar. All rights reserved.</p>
+        
+        
+        {/* Our Presence in Rajasthan - Centered */}
+        <div className="border-t border-gray-700 mt-8 pt-8 pb-6 ">
+          {/* Top Section - Centered */}
+          <div className="text-center">
+            <h3 className="font-semibold mb-4 text-white text-lg">Our Presence in Rajasthan</h3>
+            <Link 
+              href="/rooftop-solar-installation-jaipur" 
+              className="text-gray-400 hover:text-white transition-colors text-base inline-block"
+            >
+              Jaipur
+            </Link>
+          </div>
+          
+     
+          
+          {/* Bottom Row: Copyright Left, Social Media Right */}
+          <div className="flex flex-col sm:flex-row justify-between items-center w-full">
+            {/* Copyright - Left */}
+            <div className="text-gray-400 text-sm sm:text-base mb-4 sm:mb-0">
+              <p>&copy; 2024 Chairbord Solar. All rights reserved.</p>
+            </div>
+            
+            {/* Social Media Icons - Right */}
+            <div className="flex gap-4 sm:gap-5">
+              <a href="https://facebook.com/chairbordsolar" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-gray-400 hover:text-white transition-colors">
+                <Facebook className="h-5 w-5 sm:h-6 sm:w-6" />
+              </a>
+              <a href="https://www.youtube.com/@chairbordsolar" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-gray-400 hover:text-white transition-colors">
+                <Youtube className="h-5 w-5 sm:h-6 sm:w-6" />
+              </a>
+              <a href="https://www.linkedin.com/company/chairbord-solar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors">
+                <Linkedin className="h-5 w-5 sm:h-6 sm:w-6" />
+              </a>
+              <a href="https://www.instagram.com/chairbordsolar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors">
+                <Instagram className="h-5 w-5 sm:h-6 sm:w-6" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

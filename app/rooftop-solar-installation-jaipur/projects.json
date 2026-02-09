@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Residential Solar Installation",
+    "description": "Rooftop solar installation for home in Jaipur",
+    "image": "https://varthana.com/school/wp-content/uploads/2023/01/B155.jpg",
+    "type": "Residential"
+  },
+  {
+    "id": 2,
+    "title": "Commercial Solar Array",
+    "description": "Large-scale solar panel installation on commercial building",
+    "image": "https://varthana.com/school/wp-content/uploads/2023/01/B155.jpg",
+    "type": "Commercial"
+  },
+  {
+    "id": 3,
+    "title": "Shop Solar System",
+    "description": "Solar power system for retail shop in Jaipur",
+    "image": "https://varthana.com/school/wp-content/uploads/2023/01/B155.jpg",
+    "type": "Commercial"
+  },
+  {
+    "id": 4,
+    "title": "Industrial Solar Project",
+    "description": "High-capacity solar installation for industrial facility",
+    "image": "https://varthana.com/school/wp-content/uploads/2023/01/B155.jpg",
+    "type": "Industrial"
+  }
+]
