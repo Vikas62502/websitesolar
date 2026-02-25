@@ -11,7 +11,33 @@ export const metadata: Metadata = {
   title: "Chairbord Solar - Best Solar Products & Solutions",
   description:
     "India's leading solar marketplace. Compare solar panels, inverters, and complete systems from top Indian manufacturers. Get personalized recommendations and instant cost estimates.",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: [
+      {
+        url: 'https://res.cloudinary.com/du0cxgoic/image/upload/v1771328369/favicon_mtto2x.png',
+        type: 'image/png',
+      },
+      {
+        url: 'https://res.cloudinary.com/du0cxgoic/image/upload/v1771328369/favicon_mtto2x.png',
+        sizes: '32x32',
+        type: 'image/png',
+      },
+      {
+        url: 'https://res.cloudinary.com/du0cxgoic/image/upload/v1771328369/favicon_mtto2x.png',
+        sizes: '16x16',
+        type: 'image/png',
+      },
+    ],
+    apple: [
+      {
+        url: 'https://res.cloudinary.com/du0cxgoic/image/upload/v1771328369/favicon_mtto2x.png',
+        sizes: '180x180',
+        type: 'image/png',
+      },
+    ],
+    shortcut: 'https://res.cloudinary.com/du0cxgoic/image/upload/v1771328369/favicon_mtto2x.png',
+  },
 }
 
 export default function RootLayout({

@@ -1,30 +1,30 @@
 [
   {
     "id": 1,
-    "title": "Residential Solar Installation",
-    "description": "Rooftop solar installation for home in Jaipur",
-    "image": "https://varthana.com/school/wp-content/uploads/2023/01/B155.jpg",
+    "title": "Solar System Gokulpura Jaipur 3KW",
+    "description": "Residential rooftop solar installation",
+    "image": "https://res.cloudinary.com/du0cxgoic/image/upload/v1771935081/solar-system-gokulpura-jaipur-3kw_usjdh3.webp",
     "type": "Residential"
   },
   {
     "id": 2,
-    "title": "Commercial Solar Array",
-    "description": "Large-scale solar panel installation on commercial building",
-    "image": "https://varthana.com/school/wp-content/uploads/2023/01/B155.jpg",
-    "type": "Commercial"
+    "title": "Solar System Khatipura Jaipur 5KW",
+    "description": "Residential solar installation",
+    "image": "https://res.cloudinary.com/du0cxgoic/image/upload/v1771935081/solar-system-khatipura-jaipur-5kw_qccnpj.webp",
+    "type": "Residential"
   },
   {
     "id": 3,
-    "title": "Shop Solar System",
-    "description": "Solar power system for retail shop in Jaipur",
-    "image": "https://varthana.com/school/wp-content/uploads/2023/01/B155.jpg",
-    "type": "Commercial"
+    "title": "Solar System Sodala Jaipur 5KW",
+    "description": "Rooftop solar installation",
+    "image": "https://res.cloudinary.com/du0cxgoic/image/upload/v1771935081/solar-system-sodala-jaipur-5kw_ia4bsp.webp",
+    "type": "Residential"
   },
   {
     "id": 4,
-    "title": "Industrial Solar Project",
-    "description": "High-capacity solar installation for industrial facility",
-    "image": "https://varthana.com/school/wp-content/uploads/2023/01/B155.jpg",
-    "type": "Industrial"
+    "title": "Solar System Sirsi Jaipur 3KW",
+    "description": "Residential solar installation",
+    "image": "https://res.cloudinary.com/du0cxgoic/image/upload/v1771935081/solar-system-sirsi-jaipur-3kw_icpfcx.webp",
+    "type": "Residential"
   }
 ]

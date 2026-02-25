@@ -10,10 +10,10 @@ export function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
             <Image
-                src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753789133/logo_Chairbord_Solar_1_1_avkjps.png"
+                src="https://res.cloudinary.com/du0cxgoic/image/upload/v1771327250/chairbord-solar-logo-bottom_ne5w6z.svg"
                 alt="Chairbord Solar Logo"
-                width={150}
-                height={50}
+                width={200}
+                height={200}
                 className="w-50 h-50 sm:w-18 sm:h- md:w-25 md:h-19"
               />
             </div>

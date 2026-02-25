@@ -38,10 +38,10 @@ export function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
               <Image
-                src="https://res.cloudinary.com/du0cxgoic/image/upload/v1753165862/logo_Chairbord_Solar_1_1_1_1_tnsdh8.png"
+                src="https://res.cloudinary.com/du0cxgoic/image/upload/v1771327250/chairbord-solar-logo-top_u2cecm.svg"
                 alt="Chairbord Solar Logo"
-                width={150}
-                height={50}
+                width={200}
+                height={200}
                 className="w-50 h-50 sm:w-18 md:w-25"
               />
             </Link>

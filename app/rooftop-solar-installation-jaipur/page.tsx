@@ -12,6 +12,7 @@ import testimonialsData from "./testimonials.json"
 import projectsData from "./projects.json"
 import { FAQSection } from "@/components/faq-section"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel"
 
 export default function RooftopSolarInstallationJaipurPage() {
   const { isOpen: isModalOpen, openModal, closeModal, modalProps } = useLeadModal()
@@ -19,6 +20,7 @@ export default function RooftopSolarInstallationJaipurPage() {
   const [isTestimonialAutoPlaying, setIsTestimonialAutoPlaying] = useState(true)
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
   const [isProjectAutoPlaying, setIsProjectAutoPlaying] = useState(true)
+  const [projectCarouselApi, setProjectCarouselApi] = useState<CarouselApi | null>(null)
 
   const restartAutoPlay = (setAutoPlayFunction: (value: boolean) => void) => {
     setTimeout(() => {
@@ -37,12 +39,12 @@ export default function RooftopSolarInstallationJaipurPage() {
 
   // Auto-play projects carousel every 5 seconds
   useEffect(() => {
-    if (!isProjectAutoPlaying) return
+    if (!isProjectAutoPlaying || !projectCarouselApi) return
     const interval = setInterval(() => {
-      setCurrentProjectIndex((prev) => (prev === projectsData.length - 1 ? 0 : prev + 1))
+      projectCarouselApi.scrollNext()
     }, 5000)
     return () => clearInterval(interval)
-  }, [isProjectAutoPlaying, projectsData.length])
+  }, [isProjectAutoPlaying, projectCarouselApi])
 
   const handleBookSiteVisit = () => {
     openModal({
@@ -56,9 +58,22 @@ export default function RooftopSolarInstallationJaipurPage() {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Top Section - White Background */}
-      <section className="bg-white py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Top Section - Background Image with Blur */}
+      <section className="relative py-12 lg:py-16 overflow-hidden">
+        {/* Background Image with Blur */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://res.cloudinary.com/du0cxgoic/image/upload/v1771330681/background_rjiunm.webp"
+            alt="Background"
+            fill
+            className="object-cover blur-sm"
+            priority
+          />
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
             <div>
@@ -72,14 +87,15 @@ export default function RooftopSolarInstallationJaipurPage() {
 
               <Button
                 onClick={handleBookSiteVisit}
-                className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-6 text-lg font-semibold rounded-lg mb-6"
+                className="text-white px-8 py-6 text-lg font-semibold rounded-lg mb-6 hover:opacity-90 transition-opacity"
+                style={{ backgroundColor: '#ff5900' }}
               >
                 Book Free Site Visit
               </Button>
 
               <div className="text-gray-700 text-sm lg:text-base">
                 <p>
-                  <span className="font-semibold">Visit our Jaipur Office:</span> Plot No. 10, Ground Floor, Shri Shyam Vihar, Kalwar Road, Gokulpura, Jaipur – 302012
+                  <span className="font-bold text-black">Visit our Jaipur Office:</span> Plot No. 10, Ground Floor, Shri Shyam Vihar, Kalwar Road, Gokulpura, Jaipur – 302012
                 </p>
               </div>
             </div>
@@ -87,13 +103,34 @@ export default function RooftopSolarInstallationJaipurPage() {
             {/* Right Image */}
             <div className="flex justify-center lg:justify-end">
               <div className="relative w-full max-w-md">
-                <div className="border-2 border-gray-800 rounded-lg overflow-hidden">
+                {/* Decorative background elements */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-orange-100 via-yellow-50 to-blue-50 rounded-2xl opacity-60 blur-3xl"></div>
+                <div className="absolute -top-8 -right-8 w-32 h-32 bg-orange-200 rounded-full opacity-20 blur-2xl"></div>
+                <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-yellow-200 rounded-full opacity-20 blur-2xl"></div>
+                
+                {/* Decorative geometric shapes */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-orange-400/10 to-transparent rounded-bl-full"></div>
+                <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-blue-400/10 to-transparent rounded-tr-full"></div>
+                
+                <div className="relative border-gray-800 rounded-lg overflow-hidden group">
+                  {/* Enhanced glow background */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500/30 via-yellow-500/30 to-orange-500/30 rounded-lg blur-2xl group-hover:blur-3xl transition-all duration-500 -z-10"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-400/15 to-transparent rounded-lg"></div>
+                  
+                  {/* Pattern overlay */}
+                  <div className="absolute inset-0 opacity-5" style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f97316' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                  }}></div>
+                  
+                  {/* Shadow container */}
+                  <div className="absolute inset-0 rounded-lg shadow-[0_25px_60px_-15px_rgba(249,115,22,0.6),0_15px_35px_-10px_rgba(0,0,0,0.3)] group-hover:shadow-[0_35px_80px_-15px_rgba(249,115,22,0.7),0_20px_45px_-10px_rgba(0,0,0,0.4)] transition-all duration-500 -z-5"></div>
+                  
                   <Image
-                    src="https://varthana.com/school/wp-content/uploads/2023/01/B155.jpg"
+                    src="https://res.cloudinary.com/du0cxgoic/image/upload/v1771330143/home-solar-system-jaipur_fokklm.webp"
                     alt="Chairbord Solar Team in Jaipur"
                     width={500}
                     height={500}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-cover relative z-10 rounded-lg"
                   />
                 </div>
               </div>
@@ -102,37 +139,31 @@ export default function RooftopSolarInstallationJaipurPage() {
         </div>
       </section>
        {/* Bottom Section - Dark Blue Background */}
-       <section className="bg-blue-900 py-6 lg:py-8">
+       <section className="py-6 lg:py-8" style={{ backgroundColor: '#003479' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-16">
             {/* Trust Box 1 - Google Rating */}
-            <div className="bg-white rounded-lg p-5 lg:p-6 text-center shadow-lg">
-              <p className="text-gray-700 font-semibold mb-3 text-base">Rated 4.8 ★ on</p>
-              <div className="flex justify-center">
-                <div className="text-xl font-bold">
-                  <span className="text-blue-600">G</span>
-                  <span className="text-red-600">o</span>
-                  <span className="text-yellow-500">o</span>
-                  <span className="text-blue-600">g</span>
-                  <span className="text-green-600">l</span>
-                  <span className="text-red-600">e</span>
-                </div>
+            <div className="bg-white rounded-lg p-5 lg:p-6 text-center shadow-lg flex flex-col items-center justify-center">
+              <p className="text-gray-700 font-semibold text-xl">Rated 4.8 <span style={{ color: '#ff5900' }}>★</span> on</p>
+              <div className="flex justify-center items-center">
+                <Image src="https://res.cloudinary.com/du0cxgoic/image/upload/v1771331474/logo-google_fgih4j.png" alt="Google Logo" width={120} height={40} className="h-auto" />
               </div>
             </div>
 
             {/* Trust Box 2 - Trusted Families */}
             <div className="bg-white rounded-lg p-5 lg:p-6 text-center shadow-lg">
-              <p className="text-gray-700 font-semibold mb-3 text-base">Trusted by 500+ Families in</p>
+              <p className="text-black-900  text-xl mb-">Trusted by</p>
+              <p className="text-gray-700 font-bold text-5xl align-middle" ><span style={{ color: '#ff5900' }}>1000+</span></p>
               <div className="flex justify-center">
-                <p className="text-gray-700 font-semibold text-base">Jaipur</p>
+                <p className="text-black-900 text-xl">Families in Jaipur</p>
               </div>
             </div>
 
             {/* Trust Box 3 - MNRE Approved */}
-            <div className="bg-white rounded-lg p-5 lg:p-6 text-center shadow-lg">
-              <p className="text-gray-700 font-semibold mb-3 text-base">MNRE-Approved Solar Company in</p>
-              <div className="flex justify-center">
-                <p className="text-gray-700 font-semibold text-base">Jaipur</p>
+            <div className="bg-white rounded-lg p-5 lg:p-6 text-center shadow-lg flex flex-col items-center justify-center">
+              <p className="text-gray-700 font-semibold text-2xl ">MNRE-Approved</p>
+              <div className="flex justify-center items-center">
+                <p className="text-black-900 text-xl">Solar Company in Jaipur</p>
               </div>
             </div>
           </div>
@@ -148,8 +179,8 @@ export default function RooftopSolarInstallationJaipurPage() {
           
           <p className="text-gray-700 text-base lg:text-lg mb-8 leading-relaxed">
             Homeowners in Jaipur can avail government subsidy on rooftop solar systems under the{" "}
-            <span className="text-orange-600 font-semibold">PM-Surya Ghar: Muft Bijli Yojana</span> and{" "}
-            <span className="text-orange-600 font-semibold">Nishulk Bijli Yojana</span> to reduce installation costs.
+            <span className="font-semibold" style={{ color: '#ff5900' }}>PM-Surya Ghar: Muft Bijli Yojana</span> and{" "}
+            <span className="font-semibold" style={{ color: '#ff5900' }}>Nishulk Bijli Yojana</span> to reduce installation costs.
           </p>
 
           {/* Subsidy Table */}
@@ -157,7 +188,7 @@ export default function RooftopSolarInstallationJaipurPage() {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="bg-blue-900 text-white">
+                  <tr className="text-white" style={{ backgroundColor: '#003479' }}>
                     <th className="px-6 py-4 text-left font-semibold text-base lg:text-lg">Capacity</th>
                     <th className="px-6 py-4 text-left font-semibold text-base lg:text-lg">Subsidy (Central Government)</th>
                     <th className="px-6 py-4 text-left font-semibold text-base lg:text-lg">Subsidy (State Government)</th>
@@ -205,7 +236,7 @@ export default function RooftopSolarInstallationJaipurPage() {
           
           <p className="text-gray-700 text-base lg:text-lg mb-12 text-center max-w-3xl mx-auto leading-relaxed">
             Chairbord Solar is a reliable solar power company in{" "}
-            <span className="text-orange-600 font-semibold">Jaipur</span>, known for quality systems, transparent pricing, and complete support—from subsidy to installation.
+            <span className="font-semibold" style={{ color: '#ff5900' }}>Jaipur</span>, known for quality systems, transparent pricing, and complete support—from subsidy to installation.
           </p>
 
           {/* Four Benefit Cards - 2x2 Grid */}
@@ -289,7 +320,7 @@ export default function RooftopSolarInstallationJaipurPage() {
 
               <Button
                 onClick={handleBookSiteVisit}
-                className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-6 text-lg font-semibold rounded-lg"
+                className="hover:bg-blue-800 text-white px-8 py-6 text-lg font-semibold rounded-lg" style={{ backgroundColor: '#003479' }}
               >
                 Get FREE Consultation
               </Button>
@@ -504,73 +535,55 @@ export default function RooftopSolarInstallationJaipurPage() {
             </p>
           </div>
 
-          {/* Projects Carousel */}
+          {/* Projects Carousel - 2 images visible at a time */}
           <div className="relative">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-              {/* Current and Next Project */}
-              <div className="relative overflow-hidden rounded-lg shadow-lg transition-all duration-700 ease-out">
-                <Image
-                  src={projectsData[currentProjectIndex].image}
-                  alt={projectsData[currentProjectIndex].description}
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <p className="text-white font-semibold text-lg">{projectsData[currentProjectIndex].title}</p>
-                  <p className="text-white/90 text-sm">{projectsData[currentProjectIndex].type}</p>
-                </div>
-              </div>
-
-              <div className="relative overflow-hidden rounded-lg shadow-lg transition-all duration-700 ease-out">
-                <Image
-                  src={projectsData[(currentProjectIndex + 1) % projectsData.length].image}
-                  alt={projectsData[(currentProjectIndex + 1) % projectsData.length].description}
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <p className="text-white font-semibold text-lg">{projectsData[(currentProjectIndex + 1) % projectsData.length].title}</p>
-                  <p className="text-white/90 text-sm">{projectsData[(currentProjectIndex + 1) % projectsData.length].type}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Navigation Arrows */}
-            <button
-              onClick={() => {
-                setCurrentProjectIndex((prev) => (prev === 0 ? projectsData.length - 1 : prev - 1))
-                setIsProjectAutoPlaying(false)
-                setTimeout(() => setIsProjectAutoPlaying(true), 5000)
+            <Carousel
+              opts={{ align: "start", loop: true }}
+              setApi={(api) => {
+                if (!api) return
+                setProjectCarouselApi(api)
+                setCurrentProjectIndex(api.selectedScrollSnap())
+                api.on("select", () => setCurrentProjectIndex(api.selectedScrollSnap()))
               }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white border-2 border-gray-300 rounded-full flex items-center justify-center text-gray-700 hover:text-[#ec5a04] hover:border-[#ec5a04] transition-all duration-300 shadow-lg z-10"
+              className="w-full"
             >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
-            <button
-              onClick={() => {
-                setCurrentProjectIndex((prev) => (prev === projectsData.length - 1 ? 0 : prev + 1))
-                setIsProjectAutoPlaying(false)
-                setTimeout(() => setIsProjectAutoPlaying(true), 5000)
-              }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white border-2 border-gray-300 rounded-full flex items-center justify-center text-gray-700 hover:text-[#ec5a04] hover:border-[#ec5a04] transition-all duration-300 shadow-lg z-10"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
-
-            {/* Progress Indicator */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-              <div className="flex space-x-2">
-                {projectsData.map((_, index) => (
-                  <div
-                    key={index}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      index === currentProjectIndex ? 'bg-[#ec5a04] w-8' : 'bg-white/70 w-2'
-                    }`}
-                  />
+              <CarouselContent className="-ml-4">
+                {projectsData.map((project) => (
+                  <CarouselItem key={project.id} className="pl-4 basis-full md:basis-1/2">
+                    <div className="relative overflow-hidden rounded-lg shadow-lg">
+                      <Image
+                        src={project.image}
+                        alt={project.description}
+                        width={600}
+                        height={400}
+                        className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300 min-h-[280px]"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <p className="text-white font-semibold text-lg">{project.title}</p>
+                        <p className="text-white/90 text-sm">{project.type}</p>
+                      </div>
+                    </div>
+                  </CarouselItem>
                 ))}
-              </div>
+              </CarouselContent>
+              <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 -left-2 md:-left-12" />
+              <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 -right-2 md:-right-12" />
+            </Carousel>
+            {/* Progress Indicator */}
+            <div className="flex justify-center gap-2 mt-6">
+              {projectsData.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    projectCarouselApi?.scrollTo(index)
+                    setCurrentProjectIndex(index)
+                  }}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentProjectIndex ? "bg-[#ec5a04] w-8" : "bg-gray-300 w-2 hover:bg-gray-400"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
