@@ -330,7 +330,7 @@ export default function RooftopSolarInstallationJaipurPage() {
             <div className="flex justify-center lg:justify-end">
               <div className="relative w-full max-w-lg">
                 <Image
-                  src="https://varthana.com/school/wp-content/uploads/2023/01/B155.jpg"
+                  src="https://res.cloudinary.com/du0cxgoic/image/upload/v1772003537/chairbord-solar-team-rooftop-installation-jaipur_t1stbp.webp"
                   alt="Chairbord Solar Team in Jaipur with Solar Panels"
                   width={600}
                   height={400}
