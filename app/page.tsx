@@ -349,73 +349,38 @@ export default function HomePage() {
 
   const testimonials = [
     {
-      name: "Sunita Verma",
-      location: "Pune, Maharashtra",
-      quote: "Chairbord Solar made the entire process of installing a home solar system in Jaipur incredibly smooth. The team was prompt, and now we're enjoying lower power bills every month.",
-      image: "/placeholder.svg?height=100&width=100",
-      rating: 5
-    },
-    {
       name: "Rakesh Singh",
       location: "Jaipur, Rajasthan",
       quote: "We got our rooftop solar panel in Jaipur installed by Chairbord. The quality, pricing, and support exceeded expectations. Our home now runs efficiently on solar energy.",
-      image: "/placeholder.svg?height=100&width=100",
-      rating: 5
-    },
-    {
-      name: "Priya Nair",
-      location: "Kochi, Kerala",
-      quote: "One of the most reliable solar energy companies in Jaipur. Chairbord Solar took care of everything, and the performance of the system has been consistent even during cloudy days.",
-      image: "/placeholder.svg?height=100&width=100",
+      image: "https://res.cloudinary.com/du0cxgoic/image/upload/v1772004478/ankit-soni-khatipura-rooftop-solar-customer-jaipur_bswuvn.webp",
       rating: 5
     },
     {
       name: "Amit Patel",
       location: "Ahmedabad, Gujarat",
       quote: "We installed solar panels for our home in Jaipur through Chairbord Solar. Highly impressed with the expert consultation, clean installation, and quick savings on our electricity bills.",
-      image: "/placeholder.svg?height=100&width=100",
+      image: "https://res.cloudinary.com/du0cxgoic/image/upload/v1772004478/pawan-sharma-niwaru-rooftop-solar-customer-jaipur_l7ybch.webp",
       rating: 5
     },
     {
       name: "Vikram Malhotra",
       location: "Delhi, NCR",
       quote: "Chairbord offers the best possible value for rooftop solar systems in Jaipur. Their team was quick, professional, and explained every step clearly. Very satisfied with the results.",
-      image: "/placeholder.svg?height=100&width=100",
-      rating: 5
-    },
-    {
-      name: "Anjali Desai",
-      location: "Mumbai, Maharashtra",
-      quote: "Finding trustworthy solar panel installation in Jaipur was hard—until we found Chairbord. Their team made the whole process stress-free, and the system works perfectly from day one.",
-      image: "/placeholder.svg?height=100&width=100",
+      image: "https://res.cloudinary.com/du0cxgoic/image/upload/v1772004478/suresh-singh-govindpura-rooftop-solar-customer-jaipur_onmelc.webp",
       rating: 5
     },
     {
       name: "Rajesh Kumar",
       location: "Chennai, Tamil Nadu",
       quote: "Chairbord Solar truly delivered what they promised. Installation was done on time, and their post-installation support was excellent. A great experience from start to finish.",
-      image: "/placeholder.svg?height=100&width=100",
-      rating: 5
-    },
-    {
-      name: "Sneha Reddy",
-      location: "Hyderabad, Telangana",
-      quote: "We went solar with Chairbord last year. Our power bills are significantly down, and the system has worked without a glitch. I recommend them to everyone I know.",
-      image: "/placeholder.svg?height=100&width=100",
+      image: "https://res.cloudinary.com/du0cxgoic/image/upload/v1772004478/rohitash-singh-shekhawat-govindpura-rooftop-solar-customer-jaipur_dwiiw9.webp",
       rating: 5
     },
     {
       name: "Arun Gupta",
       location: "Kolkata, West Bengal",
       quote: "As a business owner, I appreciated Chairbord's structured approach and clarity in pricing. Their team was knowledgeable and courteous throughout the process. Our solar system runs efficiently.",
-      image: "/placeholder.svg?height=100&width=100",
-      rating: 5
-    },
-    {
-      name: "Meera Sharma",
-      location: "Bangalore, Karnataka",
-      quote: "The Chairbord team is professional, punctual, and honest always. It's been an entire year with zero complaints. Their unmatched service quality consistently stands out in the solar market.",
-      image: "/placeholder.svg?height=100&width=100",
+      image: "https://res.cloudinary.com/du0cxgoic/image/upload/v1772004478/mukesh-bagda-harnathpura-rooftop-solar-customer-jaipur_jos1lu.webp",
       rating: 5
     }
   ]
