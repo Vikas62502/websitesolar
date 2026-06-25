@@ -32,12 +32,15 @@ jobs:
       - name: ✅ Done
         run: echo "Image pushed to Docker Hub!"
 
-      - name: Deploy to EC2 via SSH
+      - name: Deploy to Hostinger via SSH
         uses: appleboy/ssh-action@v1.0.0
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_SSH_KEY }}
+          # host: ${{ secrets.EC2_HOST }}
+          # username: ${{ secrets.EC2_USER }}
+          # key: ${{ secrets.EC2_SSH_KEY }}
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USER }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
           script: |
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/cbpl-solar-main-web:latest
             sudo docker stop cbpl_solar_main_web || true && sudo docker rm cbpl_solar_main_web || true
