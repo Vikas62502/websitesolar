@@ -10,15 +10,19 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
+          cache: yarn
 
-      - name: Install dependencies
-        run: npm install
+      # Verify the committed lockfile is consistent (fails on drift) instead
+      # of an unpinned `npm install`. The image itself is built reproducibly
+      # from the lockfile inside the Dockerfile.
+      - name: Install dependencies (lockfile-verified)
+        run: yarn install --frozen-lockfile
 
       - name: Build Docker image
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/cbpl-solar-main-web:latest .
@@ -45,8 +49,18 @@ jobs:
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/cbpl-solar-main-web:latest
             sudo docker stop cbpl_solar_main_web || true && sudo docker rm cbpl_solar_main_web || true
             sudo docker run -d \
-             --name cbpl_solar_main_web \
+              --name cbpl_solar_main_web \
+              --restart unless-stopped \
               -p 5001:3000 \
+              --user 1001:1001 \
+              --read-only \
+              --tmpfs /tmp:rw,noexec,nosuid,size=64m \
+              --tmpfs /app/.next/cache:rw,noexec,nosuid,size=256m \
+              --cap-drop ALL \
+              --security-opt no-new-privileges \
+              --pids-limit 256 \
+              --memory 512m \
+              --cpus 1 \
               -e NEXT_PUBLIC_BASEURL=${{ secrets.NEXT_PUBLIC_BASEURL }} \
               -e NEXT_PUBLIC_SOCKET_URL=${{ secrets.NEXT_PUBLIC_SOCKET_URL }} \
-               ${{ secrets.DOCKER_USERNAME }}/cbpl-solar-main-web:latest
+              ${{ secrets.DOCKER_USERNAME }}/cbpl-solar-main-web:latest
